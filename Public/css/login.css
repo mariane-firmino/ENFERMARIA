@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: linear-gradient(90deg, #d8ffca, #31d85c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.card-login {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
+}
+
+.lado-logo {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    padding: 40px;
+}
+
+.lado-logo img {
+    width: 100%;
+    max-width: 350px;
+}
+
+.lado-form {
+    width: 50%;
+    background: #009933;
+    padding: 50px;
+}
+
+.lado-form h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+label {
+    color: #fff;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    height: 42px;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+.btn-login {
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 6px;
+    background: #d90d0d;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn-login:hover {
+    background: #b80808;
+}
+
+.links {
+    margin-top: 40px;
+    color: white;
+    font-size: 14px;
+}
+
+.links p {
+    margin-bottom: 12px;
+}
+
+.links a {
+    color: #8fd3ff;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsivo */
+
+@media (max-width:768px) {
+
+    .card-login {
+        flex-direction: column;
+    }
+
+    .lado-logo,
+    .lado-form {
+        width: 100%;
+    }
+
+    .lado-logo {
+        padding: 30px;
+    }
+
+    .lado-logo img {
+        max-width: 220px;
+    }
+
+    .lado-form {
+        padding: 30px;
+    }
+
+    .lado-form h2 {
+        margin-bottom: 30px;
+        font-size: 28px;
+    }
+
+}
