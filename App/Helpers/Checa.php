@@ -19,6 +19,15 @@ class checa
         endif;
     } // fim da função checarEmail
 
+    public static function checarCpf($cpf)
+    {
+        if (!preg_match('/^[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}$/', $cpf)):
+            return true; // Retorna TRUE se houver ERRO no CPF
+        else:
+            return false; // Retorna FALSE se o CPF for VÁLIDO
+        endif;
+    } // fim da função checarCpf
+
     public static function dataBr($data)
     {
         if (isset($data)):
