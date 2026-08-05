@@ -1,0 +1,121 @@
+.container-gustavo{
+    width:90%;
+    max-width:1150px;
+    height:620px;
+    display:flex;
+    border:2px solid #1fa4ff;
+    border-radius:5px;
+    background:white;
+}
+
+
+.left{
+    width:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#ffffff;
+}
+
+.logo{
+    width:340px;
+}
+
+
+.right{
+    width:50%;
+    background: linear-gradient(
+        180deg,
+        #06a635 0%,
+        #058f2d 20%,
+        #047a26 45%,
+        #03611d 70%,
+        #024716 100%
+    );
+    box-shadow: inset 0 0 30px rgba(0,0,0,.12);
+    color:white;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:60px;
+}
+
+.right h1{
+    font-size:38px;
+    margin-bottom:12px;
+}
+
+.right p{
+    font-size:14px;
+    text-align:center;
+    margin-bottom:55px;
+}
+
+form{
+    width:100%;
+}
+
+label{
+    display:block;
+    margin-bottom:10px;
+    font-size:22px;
+}
+
+input{
+    width:100%;
+    height:50px;
+    border:none;
+    outline:none;
+    border-radius:4px;
+    padding-left:15px;
+    font-size:18px;
+    margin-bottom:50px;
+}
+
+button{
+    width:100%;
+    height:55px;
+    border:none;
+    border-radius:4px;
+    background:#d71919;
+    color:white;
+    font-size:19px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#b61212;
+}
+
+button i{
+    margin-left:8px;
+}
+
+.divisor{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:80px 0 25px;
+}
+
+.divisor hr{
+    width:40%;
+    border:1px solid #ddd;
+}
+
+.divisor span{
+    margin:0 15px;
+    font-size:15px;
+}
+
+a{
+    color:#9fd4ff;
+    text-decoration:none;
+    font-size:15px;
+}
+
+a:hover{
+    text-decoration:underline;
+}

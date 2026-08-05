@@ -30,7 +30,7 @@
         </form>
 
         <div class="links">
-            <p>Esqueceu a senha? <a href="<?= URL ?>">Esqueci a senha</a></p>
+            <p>Esqueceu a senha? <a href="<?= URL ?>/usuarios/esqueciMinhaSenha1">Esqueci a senha</a></p>
             <p>Ainda não está cadastrado? <a href="<?= URL ?>/usuarios/cadastrar">Cadastre-se</a></p>
         </div>
 

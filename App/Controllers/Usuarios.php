@@ -126,6 +126,20 @@ class Usuarios extends Controller
         endif;
         $this->view('usuarios/cadastro', $dados);
     }
+
+    public function esqueciMinhaSenha1()
+    {
+        $dados = [
+            'titulo' => 'Página de esqueci senha',
+            'descricao' => 'Esuqeci senha de usuário'
+        ];
+        $this->view('usuarios/esqueciMinhaSenha1', $dados);
+    }
+
+
+
+
+
 }
 
 ?> <!-- fim do php -->
