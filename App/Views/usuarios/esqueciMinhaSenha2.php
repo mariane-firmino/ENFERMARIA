@@ -1,47 +1,45 @@
-<div class="container-gustavo">
+<div class="container-login">
+    <div class="container-gustavo">
+        <div class="left">
+            <img src="<?= URL ?>/public/img/logo_enfermaria.jpeg" alt="Logo Enfermaria" class="logo">
+        </div>
+        <div class="right">
+            <h1>Esqueci minha senha</h1>
 
-    <div class="left">
+            <p>
+                Enviamos um código de recuperação para o seu e-mail.<br>
+                Verifique e insira o código abaixo.
+            </p>
 
-        <img src="<?= URL ?>/public/img/logo_enfermaria.jpeg" alt="Logo Enfermaria" class="logo">
+            <form>
 
-    </div>
+                <label>Link de recuperação:</label>
 
-    <div class="right">
+                <input type="text" placeholder="">
 
-        <h1>Esqueci minha senha</h1>
+                <label class="titulo-aviso">
+                    Não recebeu o link?
+                </label>
 
-        <p>
-            Enviamos um código de recuperação para o seu e-mail.<br>
-            Verifique e insira o código abaixo.
-        </p>
+                <div class="aviso">
 
-        <form>
+                    <span class="icone">⚠</span>
 
-            <label>Link de recuperação:</label>
+                    <span>
+                        Verifique sua caixa de entrada ou solicite um novo link
+                    </span>
 
-            <input type="text" placeholder="">
+                </div>
 
-            <label class="titulo-aviso">
-                Não recebeu o link?
-            </label>
+                <button type="submit">
+                    Validar link →
+                </button>
 
-            <div class="aviso">
+            </form>
 
-                <span class="icone">⚠</span>
+            <a href="<?= URL ?>/paginas/index">Reenviar link</a>
 
-                <span>
-                    Verifique sua caixa de entrada ou solicite um novo link
-                </span>
-
-            </div>
-
-            <button type="submit">
-                Validar link →
-            </button>
-
-        </form>
-
-        <a href="<?= URL ?>/paginas/index">Reenviar link</a>
+        </div>
 
     </div>
 

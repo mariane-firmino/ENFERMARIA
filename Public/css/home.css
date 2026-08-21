@@ -1,0 +1,221 @@
+body {
+    min-height: 100vh;
+    background: #ffffff;
+    color: #222;
+    overflow-x: hidden;
+}
+
+.layout {
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    min-height: 100vh;
+    padding: 24px 28px 40px;
+    background: #ffffff;
+}
+
+.conteudo {
+    padding: 30px 34px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 32px;
+    background: #ffffff;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.titulo-inicio {
+    border-left: 4px solid #00a83b;
+    padding-left: 10px;
+    min-height: 65px;
+}
+
+.topo h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.topo p {
+    color: #555;
+    font-size: 18px;
+}
+.logo-home {
+    width: 130px;
+    border-radius: 16px;
+}
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.card {
+    min-height: 170px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    padding: 24px 20px;
+    display: grid;
+    gap: 16px;
+    justify-items: center;
+    align-content: center;
+}
+
+.card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: center;
+    color: #171717;
+}
+
+.card span {
+    font-size: 54px;
+    font-weight: 800;
+    color: #111;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    transition: transform 0.2s ease;
+}
+
+@media (max-width: 1220px) {
+
+    .layout {
+        padding: 22px 18px 30px;
+    }
+
+    .conteudo {
+        padding: 22px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 600px) {
+
+    body {
+        background: #ffffff;
+    }
+
+    .layout {
+        width: 100%;
+        min-height: 100vh;
+        padding: 0;
+        margin: 0;
+    }
+    .conteudo {
+        width: 100%;
+        min-height: 100vh;
+        padding: 16px 12px 20px;
+        display: block;
+        background: #ffffff;
+    }
+    .topo {
+        width: 100%;
+        height: 62px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 18px;
+    }
+
+    .titulo-inicio {
+        border-left: 3px solid #00a83b;
+        padding-left: 5px;
+        min-height: 28px;
+    }
+
+    .topo h1 {
+        font-size: 25px;
+        line-height: 25px;
+        margin-bottom: 2px;
+        font-weight: 600;
+    }
+
+    .topo p {
+        font-size: 8px;
+        line-height: 9px;
+        color: #333;
+    }
+
+    .logo-home {
+        width: 65px;
+        height: auto;
+        border-radius: 0;
+        margin-top: 0;
+    }
+    .cards {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    .card {
+        width: 80%;
+        height: 105px;
+        min-height: 94px;
+        padding: 8px 10px;
+        border-radius: 6px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        background: #ffffff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.20);
+    }
+
+    .card h3 {
+        font-size: 11px;
+        line-height: 13px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .card span {
+        font-size: 32px;
+        line-height: 34px;
+        font-weight: 800;
+    }
+    .card:hover {
+        transform: none;
+    }
+}
+
+
+@media (max-width: 350px) {
+
+    .conteudo {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .card {
+        height: 92px;
+        min-height: 92px;
+    }
+
+    .card h3 {
+        font-size: 10px;
+    }
+
+    .card span {
+        font-size: 30px;
+    }
+
+    .logo-home {
+        width: 40px;
+    }
+}

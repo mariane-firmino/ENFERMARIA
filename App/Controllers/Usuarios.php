@@ -136,7 +136,68 @@ class Usuarios extends Controller
         $this->view('usuarios/esqueciMinhaSenha1', $dados);
     }
 
+    public function login()
+    {
+        /*echo "loginUser";
+        echo "<pre>";
+        print_r($_POST);
+        echo "</pre>";
+        die;*/
+        
+        $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
+        if (isset($formulario)) :
+            $dados = [
+                'email' => trim($formulario['email']),
+                'senha' => trim($formulario['senha']),
+            ];
+        
+            if (in_array("", $formulario)) :
 
+                if (empty($formulario['email'])) :
+                    $dados['email_erro'] = 'Preencha o campo e-mail';
+                endif;
+
+                if (empty($formulario['senha'])) :
+                    $dados['senha_erro'] = 'Preencha o campo senha';
+                endif;
+
+            else :
+                if (Checa::checarEmail($formulario['email'])) :
+                    $dados['email_erro'] = 'O e-mail informado é invalido';
+                else :
+                   
+                    $usuario = $this->usuarioModel->checarLogin($formulario['email'], $formulario['senha']);
+
+                    if($usuario): 
+                        $this->criarSessaoUsuario($usuario);
+                    else:
+                        Sessao::mensagem('usuario','Usuario ou senha invalidos','alert alert-danger');
+                    endif;
+
+                endif;
+
+            endif;
+        else :
+            $dados = [
+                'email' => '',
+                'senha' => '',
+                'email_erro' => '',
+                'senha_erro' => ''
+            ];
+
+        endif;
+
+
+        $this->view('usuarios/login', $dados);
+    }
+
+    private function criarSessaoUsuario($usuario){
+        $_SESSION['usuario_id'] = $usuario->id;
+        $_SESSION['usuario_nome'] = $usuario->nome;
+        $_SESSION['usuario_email'] = $usuario->email;
+
+        URL::redirecionar('paginas/home');
+    }
 
 
 

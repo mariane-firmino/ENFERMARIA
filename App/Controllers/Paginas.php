@@ -16,6 +16,15 @@ class Paginas extends Controller
         ];
         $this->view('usuarios/login', $dados);
     }
+
+    public function home()
+    {
+        $dados = [
+            'titulo' => 'Página de home',
+            'descricao' => 'pagina home'
+        ];
+        $this->view('paginas/home', $dados);
+    }
 }
 
 ?> <!-- fim do php -->

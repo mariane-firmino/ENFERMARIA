@@ -5,7 +5,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-body {
+.container-login {
     background: linear-gradient(90deg, #d8ffca, #31d85c);
     display: flex;
     justify-content: center;

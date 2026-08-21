@@ -1,3 +1,6 @@
+<div class="container-login">
+
+
 <div class="card-login">
     <div class="lado-logo">
         <img src="<?= URL ?>/public/img/logo_enfermaria.jpeg" alt="Logo Enfermaria">
@@ -5,24 +8,31 @@
 
     <div class="lado-form">
         <h2>REALIZAR LOGIN</h2>
-
-        <form action="#" method="post">
+         <?=Sessao::mensagem('usuario')?>
+        <form action="<?=URL?>/usuarios/login" method="post">
             <label for="email">E-mail:</label>
             <input
                 type="email"
                 id="email"
-                class="form-control"
+                name="email"
+                class="form-control <?= $dados['email_erro'] ? 'is-invalid' : '' ?>"
+                
                 placeholder="Digite seu e-mail"
                 required>
-
+                <div class='invalid-feedback'>
+                        <?= $dados['email_erro'] ?>
+                    </div>
             <label for="senha">Senha:</label>
             <input
                 type="password"
                 id="senha"
-                class="form-control"
+                name="senha"
+                class="form-control <?= $dados['senha_erro'] ? 'is-invalid' : '' ?>"
                 placeholder="Digite sua senha"
                 required>
-
+                <div class="invalid-feedback">
+                        <?= $dados['senha_erro'] ?>
+                    </div>
             <button type="submit" class="btn-login">
                 Realizar Login
             </button>
@@ -36,4 +46,5 @@
 
     </div>
 
+</div>
 </div>

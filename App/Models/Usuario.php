@@ -55,4 +55,21 @@ class Usuario
         $this->db->query("SELECT * FROM funcao ORDER BY func_nome ASC");
         return $this->db->resultados();
     }
+    
+    public function checarLogin($email, $senha)
+    {
+        $this->db->query("SELECT * FROM servidor WHERE serv_email = :e");
+        $this->db->bind(":e", $email);
+
+        if ($this->db->resultado()) : 
+            $resultado = $this->db->resultado();
+            if(password_verify($senha, $resultado->serv_senha)): 
+                return $resultado;
+            else:
+                return false;
+            endif;
+        else :
+            return false;
+        endif;
+    }
 } // FIM DA CLASSE USUARIO
