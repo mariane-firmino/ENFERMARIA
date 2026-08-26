@@ -16,6 +16,7 @@ $db = new Database;
     <link rel="stylesheet" href="<?= URL ?>/css/login.css">
     <link rel="stylesheet" href="<?= URL ?>/css/esqueciSenha.css">
     <link rel="stylesheet" href="<?= URL ?>/css/home.css">
+    <link rel="stylesheet" href="<?= URL ?>/css/footer.css">
 </head>
 <body>
     <?php

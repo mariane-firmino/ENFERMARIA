@@ -199,6 +199,15 @@ class Usuarios extends Controller
         URL::redirecionar('paginas/home');
     }
 
+    public function logout(){
+        unset($_SESSION['usuario_id']);
+        unset($_SESSION['usuario_nome']);
+        unset($_SESSION['usuario_email']);
+
+        session_destroy();
+        URL::redirecionar('usuarios/login');
+    }
+
 
 
 }

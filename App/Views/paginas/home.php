@@ -2,8 +2,8 @@
     <main class="conteudo">
         <header class="topo">
             <div class="titulo-inicio">
-                <h1>Inicio</h1>
-                <p>Bem-Vindo, @nome!</p>
+                <h1>Início</h1>
+                <p>Bem-Vindo, <?= $_SESSION['usuario_nome']; ?>!</p>
             </div>
             <img src="<?=URL?>/img/logo_enfermaria.jpeg" class="logo-home" alt="Logo">
         </header>
@@ -28,3 +28,5 @@
         </section>
     </main>
 </div>
+
+<?= include '../App/Views/footer.php' ?>

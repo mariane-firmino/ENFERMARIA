@@ -10,11 +10,7 @@ class Paginas extends Controller
 
     public function index()
     {
-        $dados = [
-            'titulo' => 'Página de Login',
-            'descricao' => 'Login de usuário'
-        ];
-        $this->view('usuarios/login', $dados);
+        URL::redirecionar('usuarios/login');
     }
 
     public function home()

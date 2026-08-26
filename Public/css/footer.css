@@ -1,0 +1,111 @@
+
+.conteudo-principal {
+    flex: 1;
+}
+
+
+.rodape-principal {
+    background: linear-gradient(
+        to right,
+        #009c3b,
+        #008f38,
+        #006b2d
+    );
+
+    color: white;
+
+    padding: 18px 0;
+}
+
+
+
+.rodape-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.rodape-link {
+    color: white;
+    text-decoration: none;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    line-height: 27px;
+}
+
+.rodape-link:hover {
+    color: #dddddd;
+}
+
+
+
+
+.rodape-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rodape-logo-imagem {
+    width: 190px;
+    height: auto;
+}
+
+
+
+.rodape-suporte {
+    text-align: right;
+
+    font-size: 15px;
+}
+
+.rodape-suporte-titulo {
+    font-size: 18px;
+}
+
+.rodape-suporte-email {
+    margin: 5px 0;
+}
+
+.rodape-suporte-telefone {
+    margin: 5px 0;
+}
+
+
+
+
+@media (max-width: 767px) {
+
+    .rodape-principal {
+        padding: 25px 0;
+    }
+
+    .rodape-menu {
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .rodape-link {
+        font-size: 17px;
+        line-height: 25px;
+    }
+
+    .rodape-logo {
+        margin-bottom: 20px;
+    }
+
+    .rodape-logo-imagem {
+        width: 200px;
+    }
+
+    .rodape-suporte {
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .rodape-suporte-titulo {
+        font-size: 18px;
+    }
+
+}

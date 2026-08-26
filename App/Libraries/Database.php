@@ -6,7 +6,7 @@ class Database
     private $usuario = "root";
     private $senha = "";
     private $banco = "bd_enfermaria";
-    private $porta = "3306"; //verificar a porta do seu banco
+    private $porta = "3307"; //verificar a porta do seu banco
     private $dbh;
     private $stmt;
 
