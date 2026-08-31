@@ -192,9 +192,9 @@ class Usuarios extends Controller
     }
 
     private function criarSessaoUsuario($usuario){
-        $_SESSION['usuario_id'] = $usuario->id;
-        $_SESSION['usuario_nome'] = $usuario->nome;
-        $_SESSION['usuario_email'] = $usuario->email;
+        $_SESSION['usuario_id'] = $usuario->serv_id;
+        $_SESSION['usuario_nome'] = $usuario->serv_nome;
+        $_SESSION['usuario_email'] = $usuario->serv_email;
 
         URL::redirecionar('paginas/home');
     }

@@ -3,7 +3,7 @@
         <header class="topo">
             <div class="titulo-inicio">
                 <h1>Início</h1>
-                <p>Bem-Vindo, <?= $_SESSION['usuario_nome']; ?>!</p>
+                <p>Bem-Vindo, <?= $_SESSION['usuario_nome'];?>!</p>
             </div>
             <img src="<?=URL?>/img/logo_enfermaria.jpeg" class="logo-home" alt="Logo">
         </header>
@@ -29,4 +29,4 @@
     </main>
 </div>
 
-<?= include '../App/Views/footer.php' ?>
+<?php include '../App/Views/footer.php' ?>

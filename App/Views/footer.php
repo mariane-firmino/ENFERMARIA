@@ -1,5 +1,3 @@
-
-
 <footer class="rodape-principal">
 
         <div class="container">
