@@ -21,6 +21,24 @@ class Paginas extends Controller
         ];
         $this->view('paginas/home', $dados);
     }
+
+    public function perfil()
+    {
+        $dados = [
+            'titulo' => 'Página de perfil',
+            'descricao' => 'pagina perfil'
+        ];
+        $this->view('paginas/perfil', $dados);
+    }
+
+    public function sobre()
+    {
+        $dados = [
+            'titulo' => 'Página sobre nós',
+            'descricao' => 'pagina sobre nós'
+        ];
+        $this->view('paginas/sobre', $dados);
+    }
 }
 
 ?> <!-- fim do php -->

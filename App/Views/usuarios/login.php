@@ -10,24 +10,24 @@
         <h2>REALIZAR LOGIN</h2>
          <?=Sessao::mensagem('usuario')?>
         <form action="<?=URL?>/usuarios/login" method="post">
-            <label for="email">E-mail:</label>
+            <label class="login-label" for="email">E-mail:</label>
             <input
                 type="email"
                 id="email"
                 name="email"
-                class="form-control <?= $dados['email_erro'] ? 'is-invalid' : '' ?>"
+                class="login-form-control <?= $dados['email_erro'] ? 'is-invalid' : '' ?>"
                 
                 placeholder="Digite seu e-mail"
                 required>
                 <div class='invalid-feedback'>
                         <?= $dados['email_erro'] ?>
                     </div>
-            <label for="senha">Senha:</label>
+            <label class="login-label" for="senha">Senha:</label>
             <input
                 type="password"
                 id="senha"
                 name="senha"
-                class="form-control <?= $dados['senha_erro'] ? 'is-invalid' : '' ?>"
+                class="login-form-control <?= $dados['senha_erro'] ? 'is-invalid' : '' ?>"
                 placeholder="Digite sua senha"
                 required>
                 <div class="invalid-feedback">

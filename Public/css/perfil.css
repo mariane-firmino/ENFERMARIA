@@ -1,0 +1,90 @@
+.card-user {
+    width: 630px;
+    height: 283px;
+    margin: 75px auto 0 auto;
+    padding: 25px 20px;
+    border: none !important;
+    border-radius: 5px !important;
+    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.35);
+    background-color: white;
+}
+
+.linha-verde{
+    border-left: 4px solid #20b455;
+}
+.usuario-user {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+
+.button-user {
+    width: 158px;
+    height: 32px;
+    border-radius: 20px !important;
+    font-size: 14px !important;
+}
+
+
+.label-user {
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 2px;
+    color: #000;
+}
+
+.card-user p {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    line-height: 18px;
+}
+
+.campo-user {
+    margin-bottom: 3px;
+}
+
+@media (max-width: 767px) {
+    .col-8>p {
+        font-size: 14px;
+    }
+
+    .card-user {
+        width: 100%;
+        height: auto;
+        margin: 40px auto 20px auto;
+        padding: 25px 15px;
+        box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.30);
+    }
+
+    .usuario-user {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 0;
+    }
+
+    .button-user {
+        width: 160px;
+        height: 34px;
+    }
+
+    .card-user .col-12 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .card-user p {
+        font-size: 15px;
+        margin-bottom: 13px;
+    }
+
+    .label-user {
+        font-size: 12px;
+    }
+
+    .campo-user {
+        margin-bottom: 5px;
+    }
+}

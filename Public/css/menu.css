@@ -1,0 +1,27 @@
+.offcanvas {
+    --bs-offcanvas-bg: #24B84A;
+    color: #fff;
+}
+.offcanvas .nav-link{
+    color: white;
+}
+.usuario-img {
+    border: 3px solid #00551f;
+    border-radius: 10px;
+    background: #00551f;
+    padding: 10px;
+}
+
+.nav-item:hover {
+    background: #00551f;
+    border-radius: 5px;
+}
+.nav-item a:hover {
+    padding-left: 10px;
+    transition: 0.3s;
+}
+
+.vermelho:hover {
+    background: #c40707;
+    border-radius: 5px;
+}
