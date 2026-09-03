@@ -16,13 +16,14 @@ $db = new Database;
     <!-- linkando com o css -->
     <link rel="stylesheet" href="<?= URL ?>/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= URL ?>/css/login.css">
-    <!--<link rel="stylesheet" href="<?= URL ?>/css/esqueciSenha.css">-->
+    <link rel="stylesheet" href="<?= URL ?>/css/esqueciSenha.css">
     <link rel="stylesheet" href="<?= URL ?>/css/home.css"> 
     <link rel="stylesheet" href="<?= URL ?>/css/footer.css">
     <link rel="stylesheet" href="<?= URL ?>/css/menu.css">
     <link rel="stylesheet" href="<?= URL ?>/css/perfil.css">
     <link rel="stylesheet" href="<?= URL ?>/css/sobre.css">
     <link rel="stylesheet" href="<?= URL ?>/css/notificacao.css">
+    <link rel="stylesheet" href="<?= URL ?>/css/aluno.css">
 </head>
 <body>
     <?php

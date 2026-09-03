@@ -9,7 +9,7 @@
 
                     <a href="<?= URL ?>/paginas/sobre" class="rodape-link">Sobre nós</a>
                     <a href="<?= URL ?>/paginas/home" class="rodape-link">Início</a>
-                    <a href="#" class="rodape-link">Configuração</a>
+                    <a href="<?= URL ?>/paginas/configuracao" class="rodape-link">Configuração</a>
 
                 </div>
                 <div class="col-12 col-md-4 rodape-logo">

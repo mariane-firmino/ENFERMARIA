@@ -7,7 +7,7 @@
     include '../App/Views/menu.php';
 ?>
 <div class="layout">
-    <div class="container-fluid">
+    <div class="container-fluid ps-4 pe-4 pt-5 pb-3">
         <div class="row align-items-start">
 
             <div class="col-8 linha-verde">
@@ -26,9 +26,7 @@
         <div class="card-user">
             <div class="row">
                 <div class="col-12 col-md-4 text-center">
-
                     <img src="<?=URL?>/img/user.avif" class="usuario-user" alt="Usuário">
-
                     <br><br>
 
                     <button class="btn btn-success button-user">
@@ -36,10 +34,9 @@
                     </button>
 
                     <br><br>
-
-                    <button class="btn btn-outline-success button-user">
+                    <a class="btn btn-outline-success button-user" href="<?= URL ?>/usuarios/alterarSenha">
                         Alterar Senha
-                    </button>
+                    </a>
 
                 </div>
 
@@ -47,8 +44,6 @@
                 <div class="col-12 col-md-8">
 
                     <div class="row">
-
-
                         <div class="col-12 campo-user">
                             <label class="label-user">Nome</label>
                             <p>Nome completo</p>

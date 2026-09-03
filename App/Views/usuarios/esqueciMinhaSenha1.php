@@ -12,14 +12,15 @@
             um código de recuperação
         </p>
 
-        <form>
-            <label>E-mail:</label>
+            <form>
+                <label class="ems-label">E-mail:</label>
             <input
                 type="email"
                 placeholder=""
                 required
+                class="ems-input"
             >
-            <button type="submit">
+            <button type="submit" class="ems-button">
                 Enviar link de recuperação
                 <i class="fa-solid fa-arrow-right"></i>
             </button>
@@ -30,7 +31,7 @@
             <hr>
         </div>
 
-        <a href="<?=URL?>/usuarios/login">voltar para login</a>
+        <a class="ems-a" href="<?=URL?>/usuarios/login">voltar para login</a>
     </div>
 </div>
 </div>

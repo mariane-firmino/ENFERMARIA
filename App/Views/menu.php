@@ -50,7 +50,7 @@
                             PERFIL</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-mortarboard-fill"></i> CADASTRO DE ALUNO</a>
+                        <a class="nav-link" href="<?= URL ?>/alunos/aluno"><i class="bi bi-mortarboard-fill"></i> CADASTRO DE ALUNO</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="bi bi-file-earmark-person-fill"></i> CONSULTAR ALUNO</a>
@@ -62,7 +62,7 @@
                         <a class="nav-link" href="#"><i class="bi bi-file-earmark-bar-graph-fill"></i> RELATÓRIO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-gear-wide-connected"></i> CONFIGURAÇÕES</a>
+                        <a class="nav-link" href="<?= URL ?>/paginas/configuracao"><i class="bi bi-gear-wide-connected"></i> CONFIGURAÇÕES</a>
                     </li>
                     <li class="nav-item"
                         data-bs-toggle="modal"

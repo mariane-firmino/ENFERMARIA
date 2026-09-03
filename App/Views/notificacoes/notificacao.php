@@ -119,7 +119,7 @@ include '../App/Views/menu.php';
 
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="<?= URL ?>/notificacoes/detalhe">
                                 Visualizar
                             </a>
                         </li>

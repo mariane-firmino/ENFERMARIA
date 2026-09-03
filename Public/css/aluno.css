@@ -1,0 +1,278 @@
+.enf-conteudo {
+    width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 45px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.enf-cards {
+    width: 100%;
+    margin: 0;
+}
+
+.enf-cards>div {
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.enf-perfil {
+    width: 100%;
+    height: 125px;
+
+    border: 1px solid #d8d8d8;
+    border-radius: 7px;
+
+    background-color: #ffffff;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+.enf-corpo {
+    width: 100%;
+    height: 100%;
+
+    padding: 8px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.enf-card-titulo {
+    margin: 0 0 9px 0;
+    padding: 0;
+
+    text-align: center;
+
+    font-size: 18px;
+    line-height: 15px;
+
+    font-weight: 700;
+
+    color: #000000;
+}
+
+
+.enf-card-numero {
+    margin: 0;
+    padding: 0;
+
+    font-size: 36px;
+    line-height: 36px;
+
+    font-weight: 700;
+
+    color: #000000;
+}
+
+.enf-botao-area {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.enf-cadastrar {
+    width: 170px;
+    height: 30px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 20px;
+
+    background-color: #20b34b;
+
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.enf-cadastrar:hover {
+    background-color: #159f40;
+    color: #ffffff;
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+
+    .enf-conteudo {
+        max-width: 850px;
+        margin-top: 40px;
+    }
+
+    .enf-perfil {
+        height: 120px;
+    }
+
+    .enf-card-titulo {
+        font-size: 13px;
+        line-height: 15px;
+    }
+
+    .enf-card-numero {
+        font-size: 35px;
+        line-height: 35px;
+    }
+}
+
+@media (max-width: 767px) {
+    .enf-cabecalho {
+        height: 70px;
+        padding: 10px 15px;
+    }
+
+    .enf-titulo h1 {
+        font-size: 17px;
+        line-height: 20px;
+        font-weight: 500;
+    }
+
+    .enf-titulo p {
+        font-size: 9px;
+        line-height: 11px;
+    }
+
+    .enf-logo {
+        width: 58px;
+    }
+
+    .enf-conteudo {
+        width: 100%;
+        max-width: 100%;
+
+        margin-top: 35px;
+
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .enf-cards>div {
+        padding-left: 5px;
+        padding-right: 5px;
+
+        margin-bottom: 12px;
+    }
+
+    .enf-perfil {
+        width: 100%;
+        height: 125px;
+    }
+
+    .enf-card-titulo {
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 700;
+    }
+
+    .enf-card-numero {
+        font-size: 35px;
+        line-height: 35px;
+        font-weight: 700;
+    }
+
+    .enf-botao-area {
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+
+        margin-top: 18px;
+        margin-bottom: 20px;
+    }
+
+    .enf-cadastrar {
+        width: 310px;
+
+        max-width: 100%;
+
+        height: 32px;
+
+        padding: 0;
+
+        border: none;
+        border-radius: 18px;
+
+        background-color: #20b34b;
+
+        color: #ffffff;
+
+        font-size: 14px;
+
+        font-weight: 600;
+    }
+
+
+    .enf-cadastrar:hover {
+        background-color: #159f40;
+        color: #ffffff;
+    }
+}
+
+
+@media (max-width: 400px) {
+
+    .enf-cabecalho {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+
+    .enf-logo {
+        width: 54px;
+    }
+
+
+    .enf-conteudo {
+        padding-left: 10px;
+        padding-right: 10px;
+
+        margin-top: 30px;
+    }
+
+
+    .enf-perfil {
+        height: 120px;
+    }
+
+
+    .enf-card-titulo {
+        font-size: 13px;
+        line-height: 15px;
+        font-weight: 700;
+    }
+
+
+    .enf-card-numero {
+        font-size: 33px;
+        line-height: 33px;
+    }
+
+    .enf-botao-area {
+        margin-top: 18px;
+        margin-bottom: 20px;
+    }
+
+
+    .enf-cadastrar {
+        width: 310px;
+
+        max-width: 100%;
+
+        height: 32px;
+
+        font-size: 14px;
+
+        font-weight: 600;
+    }
+}

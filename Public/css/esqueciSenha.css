@@ -96,7 +96,7 @@ form{
 
 }
 
-label{
+.ems-label{
 
     display:block;
 
@@ -106,7 +106,7 @@ label{
 
 }
 
-input{
+.ems-input{
 
     width:100%;
 
@@ -126,7 +126,7 @@ input{
 
 }
 
-button{
+.ems-button{
 
     width:100%;
 
@@ -148,13 +148,13 @@ button{
 
 }
 
-button:hover{
+.ems-button:hover{
 
     background:#b61212;
 
 }
 
-button i{
+.ems-button i{
 
     margin-left:8px;
 
@@ -190,7 +190,7 @@ button i{
 
 }
 
-a{
+.ems-a{
 
     color:#9fd4ff;
 
@@ -200,7 +200,7 @@ a{
 
 }
 
-a:hover{
+.ems-a:hover{
 
     text-decoration:underline;
 
@@ -252,11 +252,11 @@ a:hover{
         font-size:13px;
     }
 
-    label{
+    .ems-label{
         font-size:18px;
     }
 
-    input, button{
+    .ems-input, .ems-button{
         height:45px;
         font-size:16px;
     }

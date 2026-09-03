@@ -208,6 +208,14 @@ class Usuarios extends Controller
         URL::redirecionar('usuarios/login');
     }
 
+    public function alterarSenha(){
+        $dados = [
+            'titulo' => 'Página de alteração de senha',
+            'descricao' => 'Alteração de senha de usuário'
+        ];
+        $this->view('usuarios/alterarSenha', $dados);
+    }
+
 
 
 }

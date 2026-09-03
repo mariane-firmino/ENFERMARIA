@@ -39,6 +39,14 @@ class Paginas extends Controller
         ];
         $this->view('paginas/sobre', $dados);
     }
+    public function configuracao()
+    {
+        $dados = [
+            'titulo' => 'Página de configuração',
+            'descricao' => 'pagina configuração'
+        ];
+        $this->view('paginas/configuracao', $dados);
+    }
 }
 
 ?> <!-- fim do php -->
