@@ -48,7 +48,7 @@ include '../App/Views/menu.php';
                     <img src="u.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Gustavo Henrique Braga Silva</h5>
-                        <h6>Desenvolvedor</h6>
+                        <h6><strong>Desenvolvedor</strong></h6>
                         <p class="card-text">Gosto de esportes.</p>
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
@@ -91,10 +91,10 @@ include '../App/Views/menu.php';
             </div>
             <div class="col mb-2 rounded">
                 <div class="card" style="width: 18rem;">
-                    <img src="u.png" class="card-img-top" alt="...">
+                    <img src="<?= URL ?>/img/mari-ft.jpeg" class="card-img-top" alt="Foto de Mariane">
                     <div class="card-body">
                         <h5 class="card-title">Mariane C Firmino</h5>
-                        <h6>Desenvolvedora Full Stack</h6>
+                        <h6><strong>Desenvolvedora Full Stack</strong></h6>
                         <p class="card-text">Desenvolver esse sistema foi algo muito gratificante, principalmente por estar colaborando para uma melhoria no meu campus. Cada etapa foi uma experiência marcante, com muitos desafios e aprendizados, estou muito feliz em desenvolvê-lo junto dos meus amigos.</p>
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
@@ -102,10 +102,10 @@ include '../App/Views/menu.php';
             </div>
             <div class="col mb-2 rounded">
                 <div class="card" style="width: 18rem;">
-                    <img src="u.png" class="card-img-top" alt="...">
+                    <img src="<?= URL ?>/img/rafael-ft.jpeg" class="card-img-top" alt="Foto de Rafael">
                     <div class="card-body">
                         <h5 class="card-title">Rafael Caldeira</h5>
-                        <h6>Desenvolvedor Back-end</h6>
+                        <h6><strong>Desenvolvedor Back-end</strong></h6>
                         <p class="card-text">Foi uma ótima experiência trabalhar nesse projeto. Gosto de jogos e esportes.</p>
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>

@@ -11,8 +11,8 @@ include '../App/Views/menu.php';
         <div class="row align-items-start">
 
             <div class="col-8 linha-verde">
-                <h1>Sobre Nós</h1>
-                <p>Informações sobre os desenvolvedores e o sistema.</p>
+                <h1>Notificação</h1>
+                <p>Veja todas as notificações aqui.</p>
             </div>
 
             <div class="col-4 text-end">

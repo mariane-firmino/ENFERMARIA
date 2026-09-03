@@ -10,4 +10,12 @@ class Triagens extends Controller
         ];
         $this->view('triagens/adicionar_triagem_m', $dados);
     }
+    public function triagemFeminina()
+    {
+        $dados = [
+            'titulo' => 'Página de triagens',
+            'descricao' => 'pagina triagens'
+        ];
+        $this->view('triagens/adicionar_triagem_f', $dados);
+    }
 }
