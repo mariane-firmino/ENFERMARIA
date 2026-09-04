@@ -47,6 +47,14 @@ class Paginas extends Controller
         ];
         $this->view('paginas/configuracao', $dados);
     }
+    public function relatorio()
+    {
+        $dados = [
+            'titulo' => 'Página de relatorio',
+            'descricao' => 'pagina relatorio'
+        ];
+        $this->view('paginas/relatorio', $dados);
+    }
 }
 
 ?> <!-- fim do php -->

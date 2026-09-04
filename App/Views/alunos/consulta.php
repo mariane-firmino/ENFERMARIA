@@ -10,8 +10,8 @@ include '../App/Views/menu.php';
     <div class="container-fluid ps-4 pe-4 pt-5 pb-3">
         <div class="row align-items-start">
             <div class="col-8 linha-verde">
-                <h1>Cadastro de Aluno</h1>
-                <p>Faça o cadastro dos alunos nessa página.</p>
+                <h1>Consultar Aluno</h1>
+                <p>Faça a consulta do estudante aqui.</p>
             </div>
             <div class="col-4 text-end">
                 <img src="<?= URL ?>/img/logo_enfermaria.jpeg" class="logo-home" alt="Logo">
@@ -26,10 +26,7 @@ include '../App/Views/menu.php';
         <section class="consultaAlunoFiltros">
             <div class="consultaAlunoCampoPesquisa">
                 <i class="bi bi-search consultaAlunoIconePesquisa"></i>
-                <input
-                    type="text"
-                    class="consultaAlunoInputPesquisa"
-                    placeholder="Buscar por nome do aluno">
+                <input type="text" class="consultaAlunoInputPesquisa" placeholder="Buscar por nome do aluno">
             </div>
 
 
@@ -76,9 +73,7 @@ include '../App/Views/menu.php';
         <section class="consultaAlunoTabelaArea">
             <div class="consultaAlunoTabelaContainer">
 
-                <div
-                    class="consultaAlunoTabelaScroll"
-                    id="consultaAlunoTabelaScroll">
+                <div class="consultaAlunoTabelaScroll" id="consultaAlunoTabelaScroll">
                     <table class="consultaAlunoTabela">
                         <thead class="consultaAlunoTabelaCabecalho">
 
@@ -118,18 +113,14 @@ include '../App/Views/menu.php';
 
                                 <td class="consultaAlunoCelula consultaAlunoCelulaAcoes">
                                     <details class="consultaAlunoMenu">
-                                        <summary
-                                            class="consultaAlunoBotaoAcoes"
-                                            aria-label="Abrir ações">
+                                        <summary class="consultaAlunoBotaoAcoes" aria-label="Abrir ações">
                                             <i class="bi bi-three-dots"></i>
                                         </summary>
 
                                         <div class="consultaAlunoMenuOpcoes">
-                                            <button
-                                                type="button"
-                                                class="consultaAlunoOpcaoMenu">
-                                                123
-                                            </button>
+                                            <a type="button" class="consultaAlunoOpcaoMenu" href="<?= URL ?>/alunos/visualizarPerfil">
+                                                Visualizar Perfil
+                                            </a>
                                         </div>
                                     </details>
                                 </td>
@@ -140,27 +131,17 @@ include '../App/Views/menu.php';
             </div>
 
             <div class="consultaAlunoBarraScroll">
-                <button
-                    type="button"
-                    class="consultaAlunoSeta"
-                    id="consultaAlunoScrollEsquerda">
+                <button type="button" class="consultaAlunoSeta" id="consultaAlunoScrollEsquerda">
                     <i class="bi bi-chevron-left"></i>
                 </button>
 
 
-                <div
-                    class="consultaAlunoTrilho"
-                    id="consultaAlunoTrilho">
-                    <div
-                        class="consultaAlunoIndicador"
-                        id="consultaAlunoIndicador"></div>
+                <div class="consultaAlunoTrilho" id="consultaAlunoTrilho">
+                    <div class="consultaAlunoIndicador" id="consultaAlunoIndicador"></div>
                 </div>
 
 
-                <button
-                    type="button"
-                    class="consultaAlunoSeta"
-                    id="consultaAlunoScrollDireita">
+                <button type="button" class="consultaAlunoSeta" id="consultaAlunoScrollDireita">
                     <i class="bi bi-chevron-right"></i>
                 </button>
             </div>

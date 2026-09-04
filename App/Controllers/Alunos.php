@@ -26,4 +26,12 @@ class Alunos extends Controller
         ];
         $this->view('alunos/cadastrar', $dados);
     }
+    public function visualizarPerfil()
+    {
+        $dados = [
+            'titulo' => 'Página de consultas',
+            'descricao' => 'pagina consultas'
+        ];
+        $this->view('alunos/visualizarPerfil', $dados);
+    }
 }

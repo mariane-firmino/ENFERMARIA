@@ -59,7 +59,7 @@
                         <a class="nav-link" href="#"><i class="bi bi-calendar3"></i> CALENDÁRIO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-file-earmark-bar-graph-fill"></i> RELATÓRIO</a>
+                        <a class="nav-link" href="<?= URL ?>/paginas/relatorio"><i class="bi bi-file-earmark-bar-graph-fill"></i> RELATÓRIO</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= URL ?>/paginas/configuracao"><i class="bi bi-gear-wide-connected"></i> CONFIGURAÇÕES</a>
