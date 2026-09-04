@@ -1,0 +1,779 @@
+/* =====================================================
+   CONFIGURAÇÕES GERAIS
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    margin: 0;
+    padding: 0;
+
+    background: #ffffff;
+    color: #111111;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   PÁGINA
+===================================================== */
+
+.consultaAlunoPagina {
+    width: 100%;
+
+    margin: 0 auto;
+
+    padding: 6px 10px 20px;
+}
+
+
+/* =====================================================
+   FILTROS
+===================================================== */
+
+.consultaAlunoFiltros {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        160px
+        110px;
+
+    gap: 8px;
+
+    width: 100%;
+}
+
+
+/* =====================================================
+   CAMPO DE PESQUISA
+===================================================== */
+
+.consultaAlunoCampoPesquisa {
+    position: relative;
+
+    width: 100%;
+}
+
+.consultaAlunoInputPesquisa {
+    display: block;
+
+    width: 100%;
+    height: 38px;
+
+    margin: 0;
+
+    padding: 0 10px 0 35px;
+
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+
+    outline: none;
+
+    background: #ffffff;
+    color: #111111;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 16px;
+}
+
+.consultaAlunoInputPesquisa::placeholder {
+    color: #777777;
+}
+
+.consultaAlunoInputPesquisa:focus {
+    border-color: #6e9d7c;
+
+    box-shadow:
+        0 0 0 2px
+        rgba(0, 83, 33, 0.08);
+}
+
+.consultaAlunoIconePesquisa {
+    position: absolute;
+
+    top: 50%;
+    left: 10px;
+
+    z-index: 2;
+
+    transform: translateY(-50%);
+
+    color: #666666;
+
+    font-size: 16px;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   SELECTS
+===================================================== */
+
+.consultaAlunoSelectPerfil,
+.consultaAlunoSelectTurma {
+    width: 100%;
+    height: 38px;
+
+    padding: 0 28px 0 10px;
+
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+
+    outline: none;
+
+    background-color: #ffffff;
+    color: #111111;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.consultaAlunoSelectPerfil:focus,
+.consultaAlunoSelectTurma:focus {
+    border-color: #6e9d7c;
+
+    box-shadow:
+        0 0 0 2px
+        rgba(0, 83, 33, 0.08);
+}
+
+
+/* =====================================================
+   RESULTADO
+===================================================== */
+
+.consultaAlunoResultado {
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+    min-height: 52px;
+
+    margin-top: 18px;
+    margin-bottom: 18px;
+
+    padding: 7px 12px;
+
+    background-color: #dfffd5;
+
+    border-radius: 7px;
+}
+
+.consultaAlunoResultadoIcone {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 40px;
+    height: 40px;
+
+    margin-right: 9px;
+
+    color: #315927;
+
+    font-size: 30px;
+}
+
+.consultaAlunoResultadoTexto {
+    min-width: 0;
+}
+
+.consultaAlunoResultadoTitulo {
+    display: block;
+
+    margin: 0 0 2px;
+
+    color: #064d25;
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+.consultaAlunoResultadoQuantidade {
+    display: block;
+
+    color: #222222;
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   ÁREA DA TABELA
+===================================================== */
+
+.consultaAlunoTabelaArea {
+    width: 100%;
+}
+
+
+/* =====================================================
+   CONTAINER BRANCO
+===================================================== */
+
+.consultaAlunoTabelaContainer {
+    width: 100%;
+    height: 220px;
+
+    background: #ffffff;
+
+    border: 1px solid #d0d0d0;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 3px 4px
+        rgba(0, 0, 0, 0.25);
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   SCROLL DA TABELA
+===================================================== */
+
+.consultaAlunoTabelaScroll {
+    width: 100%;
+    height: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.consultaAlunoTabelaScroll::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =====================================================
+   TABELA
+===================================================== */
+
+.consultaAlunoTabela {
+    width: 100%;
+    min-width: 850px;
+
+    margin: 0;
+
+    border-collapse: collapse;
+
+    table-layout: fixed;
+
+    height: auto;
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+.consultaAlunoTabelaCabecalho {
+    background: #005321;
+}
+
+.consultaAlunoTabelaCabecalho th {
+    height: 38px;
+
+    padding: 8px 11px;
+
+    border: 0;
+
+    background: #005321;
+    color: #ffffff;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    text-align: left;
+    vertical-align: middle;
+
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   LARGURA DAS COLUNAS
+===================================================== */
+
+.consultaAlunoTabelaCabecalho th:nth-child(1) {
+    width: 28%;
+}
+
+.consultaAlunoTabelaCabecalho th:nth-child(2) {
+    width: 12%;
+}
+
+.consultaAlunoTabelaCabecalho th:nth-child(3) {
+    width: 13%;
+}
+
+.consultaAlunoTabelaCabecalho th:nth-child(4) {
+    width: 12%;
+}
+
+.consultaAlunoTabelaCabecalho th:nth-child(5) {
+    width: 27%;
+}
+
+.consultaAlunoTabelaCabecalho th:nth-child(6) {
+    width: 8%;
+}
+
+
+/* =====================================================
+   CORPO DA TABELA
+===================================================== */
+
+.consultaAlunoLinha {
+    width: 100%;
+}
+
+.consultaAlunoCelula {
+    height: 38px;
+
+    padding: 8px 11px;
+
+    border-top: 1px solid #e0e0e0;
+
+    color: #111111;
+
+    font-size: 16px;
+
+    vertical-align: middle;
+
+    white-space: nowrap;
+}
+
+.consultaAlunoCelulaAcoes {
+    text-align: center;
+}
+
+
+/* =====================================================
+   BOTÃO DE AÇÕES
+===================================================== */
+
+.consultaAlunoMenu {
+    position: relative;
+
+    display: inline-block;
+}
+
+.consultaAlunoBotaoAcoes {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    margin: 0 auto;
+
+    color: #000000;
+
+    font-size: 25px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    list-style: none;
+}
+
+.consultaAlunoBotaoAcoes::-webkit-details-marker {
+    display: none;
+}
+
+.consultaAlunoBotaoAcoes::marker {
+    display: none;
+}
+
+.consultaAlunoBotaoAcoes:hover {
+    color: #333333;
+}
+
+
+/* =====================================================
+   MENU DE AÇÕES
+===================================================== */
+
+.consultaAlunoMenuOpcoes {
+    position: absolute;
+
+    right: 0;
+    bottom: calc(100% + 5px);
+
+    z-index: 1000;
+
+    min-width: 140px;
+
+    padding: 6px;
+
+    background: #ffffff;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 6px;
+
+    box-shadow:
+        0 4px 12px
+        rgba(0, 0, 0, 0.18);
+}
+
+.consultaAlunoOpcaoMenu {
+    display: block;
+
+    width: 100%;
+
+    padding: 9px 12px;
+
+    border: 0;
+    border-radius: 4px;
+
+    background: transparent;
+    color: #111111;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 16px;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+.consultaAlunoOpcaoMenu:hover {
+    background: #f1f1f1;
+}
+
+
+/* =====================================================
+   BARRA DE ARRASTAR
+===================================================== */
+
+.consultaAlunoBarraScroll {
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+    height: 30px;
+
+    margin-top: 5px;
+
+    padding: 0 2px;
+}
+
+
+/* =====================================================
+   SETAS
+===================================================== */
+
+.consultaAlunoSeta {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 28px;
+    height: 27px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+    color: #777777;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.consultaAlunoSeta:hover {
+    color: #333333;
+}
+
+
+/* =====================================================
+   TRILHO
+===================================================== */
+
+.consultaAlunoTrilho {
+    position: relative;
+
+    flex: 1;
+
+    height: 10px;
+
+    margin: 0 5px;
+
+    background: #eeeeee;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   INDICADOR
+===================================================== */
+
+.consultaAlunoIndicador {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 40%;
+
+    min-width: 50px;
+
+    height: 10px;
+
+    background: #888888;
+
+    border-radius: 10px;
+
+    cursor: grab;
+
+    touch-action: none;
+}
+
+.consultaAlunoIndicador:hover {
+    background: #666666;
+}
+
+.consultaAlunoIndicador:active {
+    cursor: grabbing;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 767px) {
+
+    .consultaAlunoPagina {
+        padding: 8px;
+    }
+
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 575px) {
+
+    .consultaAlunoPagina {
+        width: 100%;
+        padding: 7px;
+    }
+
+
+    /* FILTROS */
+
+    .consultaAlunoFiltros {
+        display: grid;
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr);
+
+        gap: 8px;
+    }
+
+    .consultaAlunoCampoPesquisa {
+        grid-column: 1 / -1;
+    }
+
+    .consultaAlunoInputPesquisa {
+        height: 40px;
+
+        padding-left: 33px;
+
+        font-size: 15px;
+    }
+
+    .consultaAlunoIconePesquisa {
+        left: 9px;
+
+        font-size: 15px;
+    }
+
+    .consultaAlunoSelectPerfil,
+    .consultaAlunoSelectTurma {
+        height: 40px;
+
+        font-size: 15px;
+    }
+
+
+    /* RESULTADO */
+
+    .consultaAlunoResultado {
+        min-height: 58px;
+
+        margin-top: 12px;
+        margin-bottom: 13px;
+
+        padding: 8px 10px;
+    }
+
+    .consultaAlunoResultadoIcone {
+        width: 37px;
+        height: 37px;
+
+        margin-right: 8px;
+
+        font-size: 28px;
+    }
+
+    .consultaAlunoResultadoTitulo {
+        font-size: 16px;
+    }
+
+    .consultaAlunoResultadoQuantidade {
+        font-size: 14px;
+    }
+
+
+    /* QUADRADO DA TABELA */
+
+    .consultaAlunoTabelaContainer {
+        height: 220px;
+
+        border-radius: 8px;
+    }
+
+
+    /* TABELA */
+
+    .consultaAlunoTabela {
+        width: 850px;
+
+        min-width: 850px;
+
+        height: auto;
+    }
+
+    .consultaAlunoTabelaCabecalho th {
+        height: 38px;
+
+        padding: 8px 10px;
+
+        font-size: 16px;
+    }
+
+    .consultaAlunoCelula {
+        height: 38px;
+
+        padding: 8px 10px;
+
+        font-size: 15px;
+    }
+
+
+
+
+    .consultaAlunoBotaoAcoes {
+        font-size: 24px;
+    }
+
+    /* BARRA */
+
+    .consultaAlunoBarraScroll {
+        height: 30px;
+
+        margin-top: 5px;
+    }
+
+    .consultaAlunoTrilho {
+        height: 10px;
+
+        margin: 0 4px;
+    }
+
+    .consultaAlunoIndicador {
+        height: 10px;
+
+        min-width: 55px;
+    }
+
+    .consultaAlunoSeta {
+        width: 28px;
+
+        font-size: 19px;
+    }
+
+}
+
+
+
+
+@media (max-width: 360px) {
+
+    .consultaAlunoPagina {
+        padding: 6px;
+    }
+
+    .consultaAlunoTabela {
+        width: 850px;
+
+        min-width: 850px;
+    }
+
+    .consultaAlunoTabelaCabecalho th {
+        font-size: 15px;
+    }
+
+    .consultaAlunoCelula {
+        font-size: 14px;
+    }
+
+    .consultaAlunoResultadoTitulo {
+        font-size: 15px;
+    }
+
+    .consultaAlunoResultadoQuantidade {
+        font-size: 13px;
+    }
+
+}

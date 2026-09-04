@@ -1,0 +1,17 @@
+.formulario-senha {
+    width: 50%;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+    .formulario-senha {
+        width: 70%;
+    }
+}
+
+/* Celular */
+@media (max-width: 576px) {
+    .formulario-senha {
+        width: 90%;
+    }
+}

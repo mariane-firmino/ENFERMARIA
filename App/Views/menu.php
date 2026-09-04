@@ -53,7 +53,7 @@
                         <a class="nav-link" href="<?= URL ?>/alunos/aluno"><i class="bi bi-mortarboard-fill"></i> CADASTRO DE ALUNO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-file-earmark-person-fill"></i> CONSULTAR ALUNO</a>
+                        <a class="nav-link" href="<?= URL ?>/alunos/consulta"><i class="bi bi-file-earmark-person-fill"></i> CONSULTAR ALUNO</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="bi bi-calendar3"></i> CALENDÁRIO</a>

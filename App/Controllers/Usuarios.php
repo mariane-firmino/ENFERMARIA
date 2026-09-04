@@ -215,6 +215,13 @@ class Usuarios extends Controller
         ];
         $this->view('usuarios/alterarSenha', $dados);
     }
+    public function editarPerfil(){
+        $dados = [
+            'titulo' => 'Página de edição de perfil',
+            'descricao' => 'Edição de perfil de usuário'
+        ];
+        $this->view('usuarios/editarPerfil', $dados);
+    }
 
 
 

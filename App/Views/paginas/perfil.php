@@ -29,9 +29,9 @@
                     <img src="<?=URL?>/img/user.avif" class="usuario-user" alt="Usuário">
                     <br><br>
 
-                    <button class="btn btn-success button-user">
+                    <a class="btn btn-success button-user" href="<?= URL ?>/usuarios/editarPerfil">
                         Editar Perfil
-                    </button>
+                    </a>
 
                     <br><br>
                     <a class="btn btn-outline-success button-user" href="<?= URL ?>/usuarios/alterarSenha">

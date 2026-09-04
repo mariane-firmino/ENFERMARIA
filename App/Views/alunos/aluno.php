@@ -83,9 +83,9 @@
 
         <div class="enf-botao-area">
 
-            <button type="button" class="btn enf-cadastrar">
+            <a type="button" class="btn enf-cadastrar" href="<?= URL ?>/alunos/cadastrar">
                 Cadastrar Aluno
-            </button>
+            </a>
 
         </div>
 

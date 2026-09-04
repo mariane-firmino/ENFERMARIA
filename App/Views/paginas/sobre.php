@@ -67,11 +67,11 @@ include '../App/Views/menu.php';
             </div>
             <div class="col mb-2 rounded">
                 <div class="card" style="width: 18rem;">
-                    <img src="u.png" class="card-img-top" alt="...">
+                    <img src="<?= URL ?>/img/mariaC.jpeg" class="card-img-top" alt="Foto de Maria Clara">
                     <div class="card-body">
                         <h5 class="card-title">Maria Clara</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card’s content.</p>
+                        <h6><strong>Desenvolvedora Front-End</strong></h6>
+                        <p class="card-text">Eu e meus amigos trabalhamos juntos para transformar os conhecimentos adquiridos durante o curso em um projeto prático. Fiquei responsável por parte do front-end, contribuindo para o desenvolvimento da aparência do sistema e para tornar a experiência do usuário mais simples e agradável. Durante o processo, pude aprender bastante, trocar ideias com a equipe e ajudar a superar os desafios que surgiram. Foi uma experiência muito importante para o meu crescimento e fiquei muito feliz com o resultado final.</p>
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>

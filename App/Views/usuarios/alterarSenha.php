@@ -23,7 +23,7 @@
     </div>
 
 
-    <div class="shadow p-3 mb-5 rounded position-absolute top-50 start-50 translate-middle w-50">
+    <div class="shadow p-3 mb-5 rounded position-absolute top-50 start-50 translate-middle formulario-senha">
         <div class="container text-justify">
                         <div class="row row-cols-1">
                             <div class="col">
