@@ -26,6 +26,7 @@ $db = new Database;
     <link rel="stylesheet" href="<?= URL ?>/css/aluno.css">
     <link rel="stylesheet" href="<?= URL ?>/css/consulta.css">
     <link rel="stylesheet" href="<?= URL ?>/css/alterarSenha.css">
+    <link rel="stylesheet" href="<?= URL ?>/css/calendario.css">
 </head>
 <body>
     <?php
@@ -36,4 +37,6 @@ $db = new Database;
 <script src="<?= URL ?>/js/bootstrap.bundle.min.js"></script>
 <script src="<?= URL ?>/js/formatacao.js"></script>
 <script src="<?= URL ?>/js/consulta.js"></script>
+<script src="<?= URL ?>/js/api.js"></script>
+<script src="<?= URL ?>/js/calendario.js"></script>
 </html>

@@ -109,17 +109,21 @@ include '../App/Views/menu.php';
             <!-- Três pontinhos -->
             <div class="col-auto">
                 <div class="dropdown">
+
                     <button
                         class="btn p-0 border-0"
                         type="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false">
+
                         <b class="tres-pontos">...</b>
                     </button>
 
                     <ul class="dropdown-menu dropdown-menu-end">
+
                         <li>
-                            <a class="dropdown-item" href="<?= URL ?>/notificacoes/detalhe">
+                            <a class="dropdown-item"
+                                href="<?= URL ?>/notificacoes/detalhe">
                                 Visualizar
                             </a>
                         </li>
@@ -135,33 +139,72 @@ include '../App/Views/menu.php';
                                 class="dropdown-item"
                                 href="#"
                                 data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop">
+                                data-bs-target="#modalExcluirNotificacao">
                                 Excluir
                             </a>
                         </li>
+
                     </ul>
+                </div>
+            </div>
+
+
+            <!-- Modal de confirmação de exclusão -->
+            <div
+                class="modal fade"
+                id="modalExcluirNotificacao"
+                data-bs-backdrop="static"
+                data-bs-keyboard="false"
+                tabindex="-1"
+                aria-labelledby="modalExcluirNotificacaoLabel"
+                aria-hidden="true">
+
+                <div class="modal-dialog">
+
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+
+                            <h1
+                                class="modal-title fs-5"
+                                id="modalExcluirNotificacaoLabel">
+                                Confirmação de Exclusão
+                            </h1>
+
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close">
+                            </button>
+
+                        </div>
+
+                        <div class="modal-body">
+                            Tem certeza de que deseja excluir esta notificação?
+                        </div>
+
+                        <div class="modal-footer">
+
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal">
+                                Cancelar
+                            </button>
+
+                            <a
+                                class="btn btn-danger"
+                                href="#">
+                                Confirmar
+                            </a>
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!--Modal de confirmação de exclusão-->
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirmação de Exclusão</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Tem certeza de que deseja excluir esta notificação?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <a type="button" class="btn btn-primary" href="#">Confirmar</a>
-            </div>
         </div>
-    </div>
-</div>
-<?php include '../App/Views/footer.php' ?>
+        <?php include '../App/Views/footer.php' ?>

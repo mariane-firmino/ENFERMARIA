@@ -1,0 +1,718 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+.calendario-agenda-page,
+.calendario-agenda-page * {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111111;
+}
+
+
+/* =========================================================
+   PÁGINA
+========================================================= */
+
+.calendario-agenda-page {
+    width: 100%;
+    padding: 45px 20px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* =========================================================
+   BOTÃO ADICIONAR
+========================================================= */
+
+.calendario-agenda-add-button {
+    width: 205px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    border-radius: 20px !important;
+    background: #1db34a;
+    font-size: 15px;
+    font-weight: 400;
+    align-self: flex-start;
+    margin-bottom: 8px;
+}
+
+.calendario-agenda-add-button:hover {
+    background: #15963b;
+}
+
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.calendario-agenda-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 8px;
+}
+
+
+/* =========================================================
+   CALENDÁRIO
+========================================================= */
+
+.calendario-agenda-box {
+    position: relative;
+    width: 560px;
+    background: #ffffff;
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+    box-shadow:
+        0 2px 7px rgba(0, 0, 0, 0.16);
+    overflow: visible;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.calendario-agenda-header {
+    display: grid;
+    grid-template-columns: 65px 1fr 65px;
+    align-items: center;
+    width: 100%;
+    height: 62px;
+}
+
+
+/* =========================================================
+   SETAS
+========================================================= */
+
+.calendario-agenda-arrow {
+    width: 65px;
+    height: 60px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #285626;
+    font-size: 42px;
+    line-height: 42px;
+    cursor: pointer;
+}
+
+.calendario-agenda-arrow:hover {
+    color: #15963b;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.calendario-agenda-title-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+
+.calendario-agenda-title-button {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #285626;
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.calendario-agenda-title-button:hover {
+    color: #15963b;
+}
+
+
+.calendario-agenda-title-of {
+    color: #285626;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   MENUS
+========================================================= */
+
+.calendario-agenda-dropdown {
+    position: absolute;
+    z-index: 9999;
+    display: none;
+    padding: 6px;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.calendario-agenda-dropdown.is-open {
+    display: grid;
+}
+
+
+/* =========================================================
+   MENU DE MESES
+========================================================= */
+
+.calendario-agenda-month-dropdown {
+    top: 52px;
+    left: 180px;
+    width: 220px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+/* =========================================================
+   MENU DE ANOS
+========================================================= */
+
+.calendario-agenda-year-dropdown {
+    top: 52px;
+    left: 230px;
+    width: 105px;
+    max-height: 250px;
+    overflow-y: auto;
+    grid-template-columns: 1fr;
+}
+
+
+/* =========================================================
+   BOTÕES DOS MENUS
+========================================================= */
+
+.calendario-agenda-dropdown-button {
+    min-height: 30px;
+    padding: 4px 6px;
+    border: 0;
+    border-radius: 3px;
+    background: #ffffff;
+    color: #222222;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.calendario-agenda-dropdown-button:hover {
+    background: #edf8e9;
+    color: #17521f;
+}
+
+
+/* =========================================================
+   DIAS DA SEMANA
+========================================================= */
+
+.calendario-agenda-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 100%;
+    height: 34px;
+}
+
+
+.calendario-agenda-week-day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #edf8e9;
+    border-top: 1px solid #93b48b;
+    border-right: 1px solid #93b48b;
+    border-bottom: 1px solid #93b48b;
+    color: #111111;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+.calendario-agenda-week-day:first-child {
+    border-left: 1px solid #93b48b;
+}
+
+
+/* =========================================================
+   GRADE
+========================================================= */
+
+.calendario-agenda-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 100%;
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   QUADRADO DO DIA
+========================================================= */
+
+.calendario-agenda-day {
+    position: relative;
+    width: 100%;
+    min-height: 72px;
+    height: auto;
+    padding: 9px;
+    background: #ffffff;
+    border-right: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.calendario-agenda-day:nth-child(7n) {
+    border-right: none;
+}
+
+
+/* =========================================================
+   OUTRO MÊS
+========================================================= */
+
+.calendario-agenda-day.is-other-month {
+    background: #ffffff;
+}
+
+
+.calendario-agenda-day.is-other-month .calendario-agenda-day-number {
+    color: #bdbdbd;
+}
+
+
+/* =========================================================
+   NÚMERO
+========================================================= */
+
+.calendario-agenda-day-number {
+    display: block;
+    color: #111111;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 20px;
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   COMPROMISSO NO CALENDÁRIO
+========================================================= */
+
+.calendario-agenda-event {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    min-height: 18px;
+    height: 18px;
+    margin-top: 6px;
+    overflow: visible;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   PONTO
+========================================================= */
+
+.calendario-agenda-event-dot {
+    width: 10px;
+    min-width: 10px;
+    height: 10px;
+    min-height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   TEXTO
+========================================================= */
+
+.calendario-agenda-event-name {
+    display: block;
+    color: #333333;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: clip;
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   PAINEL COMPROMISSOS DO MÊS
+   DESKTOP: ALINHADO AO LADO DO CALENDÁRIO
+========================================================= */
+
+.calendario-agenda-side-panel {
+    width: 245px;
+    min-height: 470px;
+    padding: 15px 14px;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    box-shadow:
+        0 2px 7px rgba(0, 0, 0, 0.10);
+
+    /*
+     * Desce o painel para ficar alinhado
+     * com a parte interna do calendário.
+     */
+    margin-top: 62px;
+    align-self: flex-start;
+}
+
+
+/* =========================================================
+   TÍTULO DO PAINEL
+========================================================= */
+
+.calendario-agenda-side-title {
+    margin: 0 0 15px 8px;
+    color: #155325;
+    font-size: 19px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   LEGENDA
+========================================================= */
+
+.calendario-agenda-legend {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+
+.calendario-agenda-legend-dot {
+    width: 17px;
+    min-width: 17px;
+    height: 17px;
+    border-radius: 50%;
+}
+
+
+.calendario-agenda-black {
+    background: #000000;
+}
+
+
+/* =========================================================
+   SEÇÕES
+========================================================= */
+
+.calendario-agenda-side-section {
+    margin-top: 20px;
+}
+
+
+.calendario-agenda-side-section h3 {
+    margin: 0 0 8px 17px;
+    color: #111111;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+.calendario-agenda-completed-section {
+    margin-top: 22px;
+}
+
+
+/* =========================================================
+   LISTA
+========================================================= */
+
+.calendario-agenda-side-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 230px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 6px;
+}
+
+
+/* =========================================================
+   BARRA DE ROLAGEM
+========================================================= */
+
+.calendario-agenda-side-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+.calendario-agenda-side-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+
+.calendario-agenda-side-list::-webkit-scrollbar-thumb {
+    background: #93b48b;
+    border-radius: 10px;
+}
+
+
+.calendario-agenda-side-list::-webkit-scrollbar-thumb:hover {
+    background: #285626;
+}
+
+
+.calendario-agenda-side-list {
+    scrollbar-width: thin;
+    scrollbar-color: #93b48b #f1f1f1;
+}
+
+
+/* =========================================================
+   ITEM
+========================================================= */
+
+.calendario-agenda-list-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+
+.calendario-agenda-list-dot {
+    width: 17px;
+    min-width: 17px;
+    height: 17px;
+    border-radius: 50%;
+}
+
+
+.calendario-agenda-empty {
+    margin-left: 17px;
+    color: #888888;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.calendario-agenda-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+
+.calendario-agenda-modal.is-open {
+    display: flex;
+}
+
+
+.calendario-agenda-modal-box {
+    width: 360px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 7px;
+    box-shadow:
+        0 6px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   CABEÇALHO MODAL
+========================================================= */
+
+.calendario-agenda-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+
+.calendario-agenda-modal-header h2 {
+    margin: 0;
+    color: #175125;
+    font-size: 18px;
+}
+
+
+.calendario-agenda-modal-header button {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #333333;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   CAMPOS
+========================================================= */
+
+.calendario-agenda-field {
+    margin-bottom: 13px;
+}
+
+
+.calendario-agenda-field label {
+    display: block;
+    margin-bottom: 5px;
+    color: #222222;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+.calendario-agenda-field input {
+    width: 100%;
+    padding: 7px 8px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+
+.calendario-agenda-field input:focus {
+    border-color: #42a85f;
+}
+
+
+.calendario-agenda-field input[type="color"] {
+    width: 55px;
+    height: 35px;
+    padding: 2px;
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 751px) {
+
+    .calendario-agenda-event {
+        overflow: visible;
+        white-space: nowrap;
+    }
+
+
+    .calendario-agenda-event-name {
+        overflow: visible;
+        white-space: nowrap;
+        text-overflow: clip;
+        font-size: 12px;
+    }
+
+
+    .calendario-agenda-side-panel {
+        margin-top: 62px;
+        align-self: flex-start;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 750px) {
+
+    .calendario-agenda-layout {
+        flex-direction: column;
+    }
+
+
+    .calendario-agenda-box {
+        width: 100%;
+    }
+
+
+    .calendario-agenda-side-panel {
+        width: 100%;
+
+        /*
+         * No celular volta para a posição normal.
+         */
+        margin-top: 0;
+        align-self: flex-start;
+    }
+
+
+    /* =====================================================
+       CELULAR: SOMENTE OS PONTOS
+    ===================================================== */
+
+    .calendario-agenda-event {
+        width: 10px;
+        height: 10px;
+        min-height: 10px;
+        margin-top: 5px;
+        overflow: visible;
+        gap: 0;
+    }
+
+
+    .calendario-agenda-event-dot {
+        width: 9px;
+        min-width: 9px;
+        height: 9px;
+        min-height: 9px;
+        display: block;
+    }
+
+
+    .calendario-agenda-event-name {
+        display: none;
+    }
+
+
+    /* =====================================================
+       LISTA NO CELULAR
+    ===================================================== */
+
+    .calendario-agenda-side-list {
+        max-height: 230px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+}

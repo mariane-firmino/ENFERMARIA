@@ -36,15 +36,15 @@ include '../App/Views/menu.php';
                     <button type="submit" class="btn btn-success rounded-pill mb-2 w-100">
                         Salvar alterações
                     </button>
-                    <button type="submit" class="btn btn-outline-success rounded-pill w-100">
+                    <a href="<?= URL ?>/usuarios/alterarSenha" class="btn btn-outline-success rounded-pill w-100">
                         Alterar senha
-                    </button>
+                    </a>
                 </div>
                 <div class="col-12 col-md-8">
                     <form class="row g-4">
                         <div class="col-12">
                             <label for="nome completo" class="form-label">Nome completo</label>
-                            <input type="nome completo" class="form-control" id="nome completp">
+                            <input type="nome completo" class="form-control" id="nome completo">
                         </div>
                         <div class="col-12 col-md-6">
                             <label for="Email" class="form-label">Email</label>

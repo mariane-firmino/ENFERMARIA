@@ -69,7 +69,7 @@ include '../App/Views/menu.php';
     <div class="container text-center">
         <div class="row align-items-start">
             <div class="col-12 mt-3 col-sm-12 col-md-4">
-                <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                <div class="shadow-lg p-3 mb-3 bg-body-tertiary rounded">
                     <div class="col-12 mt-3 col-sm-12 col-md-12">
                         <div class="d-flex align-items-center gap-2">
                             <i class="bi bi-people-fill text-success fs-3"></i>
@@ -85,7 +85,7 @@ include '../App/Views/menu.php';
                 </div>
             </div>
             <div class="col-12 mt-3 col-sm-12 col-md-4">
-                <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                <div class="shadow-lg p-3 mb-3 bg-body-tertiary rounded">
                     <div class="col-12 mt-3 col-sm-12 col-md-12">
                         <div class="d-flex align-items-center gap-2">
                             <i class="bi bi-person-walking text-success fs-3"></i>
@@ -101,7 +101,7 @@ include '../App/Views/menu.php';
                 </div>
             </div>
             <div class="col-12 mt-3 col-sm-12 col-md-4">
-                <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                <div class="shadow-lg p-3 mb-3 bg-body-tertiary rounded">
                     <div class="col-12 mt-3 col-sm-12 col-md-12">
                         <div class="d-flex align-items-center gap-2">
                             <i class="bi bi-card-list text-success fs-3"></i>
@@ -123,7 +123,7 @@ include '../App/Views/menu.php';
     <!-- ==================================== Terceira Linha =================================================== -->
     <div class="container text-start">
         <div class="row align-items-start">
-            <div class="shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+            <div class="shadow-sm p-3 mb-5 mt-5 bg-body-tertiary rounded">
                 <div class="table-responsive">
                     <table class="table table-hover align-middle">
                         <thead class="table-light">
