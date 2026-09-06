@@ -20,7 +20,14 @@ include '../App/Views/menu.php';
         </div>
     </div>
 
-    <div class="container mt-5">
+    <nav style="--bs-breadcrumb-divider: '>';" class="m-3" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="<?= URL ?>/paginas/perfil">Perfil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Editar Perfil</li>
+        </ol>
+    </nav>
+
+    <div class="container mt-5 mb-5">
         <div class="card p-4 mx-auto" style="max-width: 600px;">
             <div class="row align-items-center">
                 <div class="col-12 col-md-4 text-center">

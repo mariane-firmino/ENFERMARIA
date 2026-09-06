@@ -39,7 +39,6 @@ include '../App/Views/menu.php';
                         <h5 class="card-title">Gabriel Caminha</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card’s content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
             </div>
@@ -50,7 +49,6 @@ include '../App/Views/menu.php';
                         <h5 class="card-title">Gustavo Henrique Braga Silva</h5>
                         <h6><strong>Desenvolvedor</strong></h6>
                         <p class="card-text">Gosto de esportes.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
             </div>
@@ -61,7 +59,6 @@ include '../App/Views/menu.php';
                         <h5 class="card-title">Laís Lima</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card’s content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
             </div>
@@ -72,7 +69,6 @@ include '../App/Views/menu.php';
                         <h5 class="card-title">Maria Clara</h5>
                         <h6><strong>Desenvolvedora Front-End</strong></h6>
                         <p class="card-text">Eu e meus amigos trabalhamos juntos para transformar os conhecimentos adquiridos durante o curso em um projeto prático. Fiquei responsável por parte do front-end, contribuindo para o desenvolvimento da aparência do sistema e para tornar a experiência do usuário mais simples e agradável. Durante o processo, pude aprender bastante, trocar ideias com a equipe e ajudar a superar os desafios que surgiram. Foi uma experiência muito importante para o meu crescimento e fiquei muito feliz com o resultado final.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
             </div>
@@ -85,7 +81,6 @@ include '../App/Views/menu.php';
                         <h5 class="card-title">Maria Eduarda</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card’s content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
             </div>
@@ -96,7 +91,6 @@ include '../App/Views/menu.php';
                         <h5 class="card-title">Mariane C Firmino</h5>
                         <h6><strong>Desenvolvedora Full Stack</strong></h6>
                         <p class="card-text">Desenvolver esse sistema foi algo muito gratificante, principalmente por estar colaborando para uma melhoria no meu campus. Cada etapa foi uma experiência marcante, com muitos desafios e aprendizados, estou muito feliz em desenvolvê-lo junto dos meus amigos.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
             </div>
@@ -107,7 +101,6 @@ include '../App/Views/menu.php';
                         <h5 class="card-title">Rafael Caldeira</h5>
                         <h6><strong>Desenvolvedor Back-end</strong></h6>
                         <p class="card-text">Foi uma ótima experiência trabalhar nesse projeto. Gosto de jogos e esportes.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
             </div>

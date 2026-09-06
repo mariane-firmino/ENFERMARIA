@@ -44,7 +44,7 @@ include '../App/Views/menu.php';
                 </a>
 
                 <!-- Botão Editar Aluno -->
-                <a href="<?= URL ?>/triagens/triagemFeminina"
+                <a href="<?= URL ?>/alunos/editarPerfil"
                     class="btn btn-success fw-bold px-3 py-2 flex-grow-1 flex-md-grow-0">
                     <i class="bi bi-pencil-fill me-2" id="lapis-esquerda"></i>
                     Editar Aluno

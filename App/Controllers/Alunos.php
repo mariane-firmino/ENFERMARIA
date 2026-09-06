@@ -34,4 +34,12 @@ class Alunos extends Controller
         ];
         $this->view('alunos/visualizarPerfil', $dados);
     }
+    public function editarPerfil()
+    {
+        $dados = [
+            'titulo' => 'Página de edição de perfil',
+            'descricao' => 'pagina edição de perfil'
+        ];
+        $this->view('alunos/editarPerfil', $dados);
+    }
 }

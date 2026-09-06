@@ -10,4 +10,13 @@ class Calendarios extends Controller
         ];
         $this->view('calendarios/calendario', $dados);
     }
+    public function visualizarConsulta()
+    {
+        $dados = [
+            'titulo' => 'Visualizar Consulta',
+            'descricao' => 'Página para visualizar detalhes da consulta'
+        ];
+        $this->view('calendarios/visualizarConsulta', $dados);
+    }
+
 }

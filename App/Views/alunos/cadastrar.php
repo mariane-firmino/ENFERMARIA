@@ -19,6 +19,13 @@ include '../App/Views/menu.php';
         </div>
     </div>
 
+    <nav style="--bs-breadcrumb-divider: '>';" class="m-3" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="<?= URL ?>/alunos/aluno">Alunos</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Cadastrar Aluno</li>
+        </ol>
+    </nav>
+
     <div class="container mt-5 mb-5">
         <div class="card p-4 shadow mx-auto" style="max-width: 1200px;">
 

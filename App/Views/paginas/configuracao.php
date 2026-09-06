@@ -51,7 +51,7 @@
                         </div>
                         <div class="row row-cols-1 border-top p-2">
                             <div class="col">
-                                <b>Alterar Senha</b>
+                                <a class="text-decoration-none text-black" href="<?= URL ?>/paginas/alterarSenha"><b>Alterar Senha</b></a>
                             </div>
                         </div>
                     </div>
@@ -129,17 +129,17 @@
                         </div>
                         <div class="row row-cols-1 border-top p-2">
                             <div class="col">
-                                <b>Gerenciar dispositivos</b>
+                                <a class="text-decoration-none text-black" href="<?= URL ?>/paginas/gerenciarDispositivos"><b>Gerenciar dispositivos</b></a>
                             </div>
                         </div>
                         <div class="row row-cols-1 border-top p-2">
                             <div class="col">
-                                <b>Atividades recentes</b>
+                                <a class="text-decoration-none text-black" href="<?= URL ?>/paginas/relatorio"><b>Atividades recentes</b></a>
                             </div>
                         </div>
                         <div class="row row-cols-1 border-top p-2">
                             <div class="col">
-                                <b>Encerrar sessão</b>
+                                <a class="text-decoration-none text-black" href="<?= URL ?>/usuario/logout"><b>Encerrar sessão</b></a>
                             </div>
                         </div>
                     </div>
