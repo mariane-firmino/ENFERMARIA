@@ -8,7 +8,7 @@
 
     <div class="lado-form">
         <h2>REALIZAR LOGIN</h2>
-         <?=Sessao::mensagem('usuario')?>
+        <?=Sessao::mensagem('usuario')?>
         <form action="<?=URL?>/usuarios/login" method="post">
             <label class="login-label" for="email">E-mail:</label>
             <input

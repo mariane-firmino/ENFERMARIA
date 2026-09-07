@@ -1,4 +1,4 @@
-<div class="main_ems">
+<div class="container-login">
 <div class="container_esqueci_minha_seha">
     <div class="left_esqueci_minha_seha">
         <img src="<?=URL?>/img/logo_enfermaria.jpeg" class="logo_esqueci_minha_seha">
