@@ -31,79 +31,208 @@ include '../App/Views/menu.php';
                 </p>
             </div>
         </div>
-        <div class="row align-items-end">
-            <div class="col mb-2 rounded">
-                <div class="card" style="width: 18rem;">
-                    <img src="u.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Gabriel Caminha</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card’s content.</p>
+        <div class="container-fluid">
+
+            <!-- PRIMEIRA LINHA -->
+            <div class="row g-4 mb-4">
+
+                <!-- Gabriel -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card h-100 shadow-sm text-center">
+                        <div>
+                            <img src="<?= URL ?>/img/gabriel.jpeg"
+                                class="card-img-top rounded-top"
+                                alt="Gabriel Caminha">
+                        </div>
+
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">
+                                Gabriel Caminha
+                            </h5>
+
+                            <h6 class="text-success">
+                                <strong>Desenvolvedor Back-end</strong>
+                            </h6>
+
+                            <p class="card-text mt-2">
+                                Estou gostando muito de desenvolver esse sistema,
+                                ainda mais ao lado de meus amigos, está sendo uma
+                                experiência incrível.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col mb-2 rounded">
-                <div class="card" style="width: 18rem;">
-                    <img src="u.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Gustavo Henrique Braga Silva</h5>
-                        <h6><strong>Desenvolvedor</strong></h6>
-                        <p class="card-text">Gosto de esportes.</p>
+
+                <!-- Gustavo -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card h-100 shadow-sm text-center">
+                        <div>
+                            <img src="<?= URL ?>/img/gustavo.jpeg"
+                                class="card-img-top rounded-top"
+                                alt="Gustavo Henrique Braga Silva">
+                        </div>
+
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">
+                                Gustavo Henrique Braga Silva
+                            </h5>
+
+                            <h6 class="text-success">
+                                <strong>Desenvolvedor Front-End</strong>
+                            </h6>
+
+                            <p class="card-text mt-2">
+                                Gosto de esportes.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col mb-2 rounded">
-                <div class="card" style="width: 18rem;">
-                    <img src="u.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Laís Lima</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card’s content.</p>
+
+                <!-- Laís -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card h-100 shadow-sm text-center">
+                        <div>
+                            <img src="<?= URL ?>/img/laís.jpeg"
+                                class="card-img-top rounded-top"
+                                alt="Laís Lima">
+                        </div>
+
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">
+                                Laís Firmino
+                            </h5>
+
+                            <h6 class="text-success">
+                                <strong>Desenvolvedora Back-End</strong>
+                            </h6>
+
+                            <p class="card-text mt-2">
+                                Participar desse projeto no meu último ano foi muito
+                                gratificante, e com a ajuda do meu grupo, conseguimos
+                                um ótimo resultado.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col mb-2 rounded">
-                <div class="card" style="width: 18rem;">
-                    <img src="<?= URL ?>/img/mariaC.jpeg" class="card-img-top" alt="Foto de Maria Clara">
-                    <div class="card-body">
-                        <h5 class="card-title">Maria Clara</h5>
-                        <h6><strong>Desenvolvedora Front-End</strong></h6>
-                        <p class="card-text">Eu e meus amigos trabalhamos juntos para transformar os conhecimentos adquiridos durante o curso em um projeto prático. Fiquei responsável por parte do front-end, contribuindo para o desenvolvimento da aparência do sistema e para tornar a experiência do usuário mais simples e agradável. Durante o processo, pude aprender bastante, trocar ideias com a equipe e ajudar a superar os desafios que surgiram. Foi uma experiência muito importante para o meu crescimento e fiquei muito feliz com o resultado final.</p>
+
+                <!-- Maria Clara -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card h-100 shadow-sm text-center">
+                        <div>
+                            <img src="<?= URL ?>/img/mariaC.jpeg"
+                                class="card-img-top rounded-top"
+                                alt="Foto de Maria Clara">
+                        </div>
+
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">
+                                Maria Clara
+                            </h5>
+
+                            <h6 class="text-success">
+                                <strong>Desenvolvedora Front-End</strong>
+                            </h6>
+
+                            <p class="card-text mt-2">
+                                Eu e meus amigos trabalhamos juntos para transformar
+                                os conhecimentos adquiridos durante o curso em um
+                                projeto prático. Fiquei responsável por parte do
+                                front-end, contribuindo para o desenvolvimento da
+                                aparência do sistema e para tornar a experiência do
+                                usuário mais simples e agradável.
+                            </p>
+                        </div>
                     </div>
                 </div>
+
             </div>
-        </div>
-        <div class="row align-items-end">
-            <div class="col mb-2 rounded">
-                <div class="card" style="width: 18rem;">
-                    <img src="u.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Maria Eduarda</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card’s content.</p>
+
+
+            <!-- SEGUNDA LINHA -->
+            <div class="row g-4">
+
+                <!-- Maria Eduarda -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card h-100 shadow-sm text-center">
+                        <div>
+                            <img src="<?= URL ?>/img/maia.jpeg"
+                                class="card-img-top rounded-top"
+                                alt="Foto de Maria Eduarda">
+                        </div>
+
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">
+                                Maria Eduarda
+                            </h5>
+
+                            <h6 class="text-success">
+                                <strong>Desenvolvedora Front-End</strong>
+                            </h6>
+
+                            <p class="card-text mt-2">
+                                Mesmo com algumas dificuldades, gostei muito de fazer parte disso e de ver o projeto ficando pronto aos poucos. Espero que ele dê certo e que realmente possa ajudar a escola.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col mb-2 rounded">
-                <div class="card" style="width: 18rem;">
-                    <img src="<?= URL ?>/img/mari-ft.jpeg" class="card-img-top" alt="Foto de Mariane">
-                    <div class="card-body">
-                        <h5 class="card-title">Mariane C Firmino</h5>
-                        <h6><strong>Desenvolvedora Full Stack</strong></h6>
-                        <p class="card-text">Desenvolver esse sistema foi algo muito gratificante, principalmente por estar colaborando para uma melhoria no meu campus. Cada etapa foi uma experiência marcante, com muitos desafios e aprendizados, estou muito feliz em desenvolvê-lo junto dos meus amigos.</p>
+
+                <!-- Mariane -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card h-100 shadow-sm text-center">
+                        <div>
+                            <img src="<?= URL ?>/img/mari-ft.jpeg"
+                                class="card-img-top rounded-top"
+                                alt="Foto de Mariane">
+                        </div>
+
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">
+                                Mariane Firmino
+                            </h5>
+
+                            <h6 class="text-success">
+                                <strong>Desenvolvedora Full Stack</strong>
+                            </h6>
+
+                            <p class="card-text mt-2">
+                                Desenvolver esse sistema foi algo muito gratificante,
+                                principalmente por estar colaborando para uma melhoria
+                                no meu campus. Cada etapa foi uma experiência marcante,
+                                com muitos desafios e aprendizados, estou muito feliz
+                                em desenvolvê-lo junto dos meus amigos.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col mb-2 rounded">
-                <div class="card" style="width: 18rem;">
-                    <img src="<?= URL ?>/img/rafael-ft.jpeg" class="card-img-top" alt="Foto de Rafael">
-                    <div class="card-body">
-                        <h5 class="card-title">Rafael Caldeira</h5>
-                        <h6><strong>Desenvolvedor Back-end</strong></h6>
-                        <p class="card-text">Foi uma ótima experiência trabalhar nesse projeto. Gosto de jogos e esportes.</p>
+
+                <!-- Rafael -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card h-100 shadow-sm text-center">
+                        <div>
+                            <img src="<?= URL ?>/img/rafael-ft.jpeg"
+                                class="card-img-top rounded-top"
+                                alt="Foto de Rafael">
+                        </div>
+
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">
+                                Rafael Caldeira
+                            </h5>
+
+                            <h6 class="text-success">
+                                <strong>Desenvolvedor Back-end</strong>
+                            </h6>
+
+                            <p class="card-text mt-2">
+                                Foi uma ótima experiência trabalhar nesse projeto.
+                                Gosto de jogos e esportes.
+                            </p>
+                        </div>
                     </div>
                 </div>
+
             </div>
+
         </div>
     </div>
     <div class="row shadow-sm p-4 mb-5 rounded">

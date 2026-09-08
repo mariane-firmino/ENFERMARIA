@@ -55,6 +55,14 @@ class Paginas extends Controller
         ];
         $this->view('paginas/relatorio', $dados);
     }
+    public function gerenciarDispositivos()
+    {
+        $dados = [
+            'titulo' => 'Página de gerenciamento de dispositivos',
+            'descricao' => 'pagina gerenciamento de dispositivos'
+        ];
+        $this->view('paginas/gerenciarDispositivos', $dados);
+    }
 }
 
 ?> <!-- fim do php -->
