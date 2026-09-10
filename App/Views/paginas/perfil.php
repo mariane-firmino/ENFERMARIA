@@ -46,39 +46,41 @@
                     <div class="row">
                         <div class="col-12 campo-user">
                             <label class="label-user">Nome</label>
-                            <p>Nome completo</p>
+                            <p><?= $_SESSION['usuario_nome'];?></p>
                         </div>
+
+                        
 
 
                         <div class="col-12 col-md-6 campo-user">
                             <label class="label-user">E-mail</label>
-                            <p>email completo</p>
+                            <p><?= $_SESSION['usuario_email'];?></p>
                         </div>
 
 
                         <div class="col-12 col-md-6 campo-user">
                             <label class="label-user">Data de Nascimento</label>
-                            <p>00/00/0000</p>
+                            <p><p><?= date('d/m/Y', strtotime($_SESSION['usuario_dt_nascimento'])) ?></p></p>
                         </div>
 
 
                         <div class="col-12 col-md-6 campo-user">
                             <label class="label-user">Telefone/Celular</label>
-                            <p>(00) 00000-0000</p>
+                            <p><?= $_SESSION['usuario_telefone'];?></p>
                         </div>
 
 
 
                         <div class="col-12 col-md-6 campo-user">
                             <label class="label-user">CPF</label>
-                            <p>000.000.000-00</p>
+                            <p><?= $_SESSION['usuario_cpf'];?></p>
                         </div>
 
 
 
                         <div class="col-12 col-md-6 campo-user">
-                            <label class="label-user">SUAP</label>
-                            <p>000000000</p>
+                            <label class="label-user">SIAPE</label>
+                            <p><?= $_SESSION['usuario_siape'];?></p>
                         </div>
 
 

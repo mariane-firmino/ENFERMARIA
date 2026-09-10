@@ -195,6 +195,11 @@ class Usuarios extends Controller
         $_SESSION['usuario_id'] = $usuario->serv_id;
         $_SESSION['usuario_nome'] = $usuario->serv_nome;
         $_SESSION['usuario_email'] = $usuario->serv_email;
+        $_SESSION['usuario_cpf'] = $usuario->serv_cpf;
+        $_SESSION['usuario_siape'] = $usuario->serv_siape;
+        $_SESSION['usuario_dt_nascimento'] = $usuario->serv_dt_nascimento;
+         $_SESSION['usuario_telefone'] = $usuario->tele_numero;
+
 
         URL::redirecionar('paginas/home');
     }

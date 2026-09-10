@@ -58,9 +58,25 @@ class Usuario
     
     public function checarLogin($email, $senha)
     {
-        $this->db->query("SELECT * FROM servidor WHERE serv_email = :e");
-        $this->db->bind(":e", $email);
+        $this->db->query($this->db->query("
+        SELECT
+        s.*,
+     
+        te.tele_numero,
+        f.func_nome
 
+        FROM servidor s
+
+        LEFT JOIN telefone te
+        ON s.func_id = te.serv_id
+
+        LEFT JOIN funcao f
+        ON s.func_id = f.func_id
+
+        WHERE s.serv_email = :e
+        "));
+        $this->db->bind(":e", $email);
+    
         if ($this->db->resultado()) : 
             $resultado = $this->db->resultado();
             if(password_verify($senha, $resultado->serv_senha)): 
