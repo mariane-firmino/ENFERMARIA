@@ -19,6 +19,24 @@ include '../App/Views/menu.php';
         </div>
     </div>
 
+    <?php if (isset($_SESSION['erro'])): ?>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                alert("<?= addslashes($_SESSION['erro']) ?>");
+            });
+        </script>
+        <?php unset($_SESSION['erro']); ?>
+    <?php endif; ?>
+
+
+    <?php if (isset($_SESSION['sucesso'])): ?>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                alert("<?= addslashes($_SESSION['sucesso']) ?>");
+            });
+        </script>
+        <?php unset($_SESSION['sucesso']); ?>
+    <?php endif; ?>
 
     <div class="shadow p-3 mb-5 rounded position-absolute top-50 start-50 translate-middle formulario-senha">
         <div class="container text-justify">
@@ -28,7 +46,7 @@ include '../App/Views/menu.php';
                 </div>
             </div>
             <div class="row row-cols-1 border-top p-2">
-                <form>
+                <form method = "POST" action = "<?= URL ?>/usuarios/salvarSenha">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Digite a senha atual <sup>*</sup></label>
                         <input type="password" class="form-control" id="senha" aria-describedby="emailHelp" required>

@@ -72,4 +72,28 @@ class Usuario
             return false;
         endif;
     }
-} // FIM DA CLASSE USUARIO
+    
+   public function buscarPorId($serv_id) {
+        $sql = "SELECT * FROM servidor WHERE serv_id = :serv_id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':serv_id', $serv_id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_OBJ);
+    }
+
+    public function alterarSenha($id, $senha)
+    {
+
+        $this->db->query("
+        UPDATE servidor
+        SET serv_senha = :senha
+        WHERE serv_id = :id
+        ");
+
+        $this->db->bind(':serv_senha', $senha);
+        $this->db->bind(':serv_id', $id);
+
+        return $this->db->executa();
+    }
+}
+// FIM DA CLASSE USUARIO

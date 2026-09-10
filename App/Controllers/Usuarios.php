@@ -135,7 +135,7 @@ class Usuarios extends Controller
         ];
         $this->view('usuarios/esqueciMinhaSenha1', $dados);
     }
-
+             
     public function login()
     {
         /*echo "loginUser";
@@ -208,13 +208,63 @@ class Usuarios extends Controller
         URL::redirecionar('usuarios/login');
     }
 
-    public function alterarSenha(){
-        $dados = [
-            'titulo' => 'Página de alteração de senha',
-            'descricao' => 'Alteração de senha de usuário'
-        ];
-        $this->view('usuarios/alterarSenha', $dados);
+    public function alterarSenha()
+    {
+        $this->view('usuarios/alterarSenha');
     }
+
+    public function salvarSenha()
+    {
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            header("Location: " . URL . "/usuarios/alterarSenha");
+            exit;
+        }
+        
+              $this->view('usuarios/alterarSenha');
+
+        $usuario = $this->usuarioModel->buscarPorId(
+            $_SESSION['usuario_id']
+        );
+        
+
+        if (!password_verify($_POST['senha_atual'], $usuario->usua_senha)) {
+
+            $_SESSION['erro'] = "Senha atual incorreta.";
+
+            header("Location: " . URL . "/usuarios/alterarSenha");
+            exit;
+        }
+        
+
+        if ($_POST['nova_senha'] != $_POST['confirmar_senha']) {
+
+            $_SESSION['erro'] = "As senhas não coincidem.";
+
+            header("Location: " . URL . "/usuarios/alterarSenha");
+            exit;
+        }
+    
+              
+        $senha = password_hash(
+            $_POST['novaSenha'],
+            PASSWORD_DEFAULT
+        );
+
+      
+
+        $this->usuarioModel->alterarSenha(
+            $_SESSION['usuario_id'],
+            $senha  669
+        );
+        
+        $_SESSION['sucesso'] = "Senha alterada com sucesso.";
+
+
+        header("Location: " . URL . "/paginas/perfil");
+        exit;
+        
+    }
+
     public function editarPerfil(){
         $dados = [
             'titulo' => 'Página de edição de perfil',
