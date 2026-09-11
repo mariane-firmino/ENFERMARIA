@@ -29,15 +29,7 @@ include '../App/Views/menu.php';
     <?php endif; ?>
 
 
-    <?php if (isset($_SESSION['sucesso'])): ?>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                alert("<?= addslashes($_SESSION['sucesso']) ?>");
-            });
-        </script>
-        <?php unset($_SESSION['sucesso']); ?>
-    <?php endif; ?>
-
+   
     <div class="shadow p-3 mb-5 rounded position-absolute top-50 start-50 translate-middle formulario-senha">
         <div class="container text-justify">
             <div class="row row-cols-1">
@@ -46,25 +38,57 @@ include '../App/Views/menu.php';
                 </div>
             </div>
             <div class="row row-cols-1 border-top p-2">
-                <form method = "POST" action = "<?= URL ?>/usuarios/salvarSenha">
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Digite a senha atual <sup>*</sup></label>
-                        <input type="password" class="form-control" id="senha" aria-describedby="emailHelp" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Nova Senha <sup>*</sup></label>
-                        <input type="password" class="form-control" id="novaSenha" aria-describedby="emailHelp" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Confirmar Nova Senha <sup>*</sup></label>
-                        <input type="password" class="form-control" id="confirmarSenha" aria-describedby="emailHelp" required>
-                    </div>
-                    <div class="mb-3 text-end">
-                        <button type="submit" class="btn btn-success">Salvar Alterações</button>
-                    </div>
+               <form method="POST" action="<?= URL ?>/usuarios/salvarSenha">
 
+    <div class="mb-3">
+        <label for="senha" class="form-label">
+            Digite a senha atual <sup>*</sup>
+        </label>
 
-                </form>
+        <input 
+            type="password" 
+            class="form-control" 
+            id="senha"
+            name="senha"
+            required
+        >
+    </div>
+
+    <div class="mb-3">
+        <label for="novaSenha" class="form-label">
+            Nova Senha <sup>*</sup>
+        </label>
+
+        <input 
+            type="password" 
+            class="form-control" 
+            id="novaSenha"
+            name="novaSenha"
+            required
+        >
+    </div>
+
+    <div class="mb-3">
+        <label for="confirmarSenha" class="form-label">
+            Confirmar Nova Senha <sup>*</sup>
+        </label>
+
+        <input 
+            type="password" 
+            class="form-control" 
+            id="confirmarSenha"
+            name="confirmarSenha"
+            required
+        >
+    </div>
+
+    <div class="mb-3 text-end">
+        <button type="submit" class="btn btn-success">
+            Salvar Alterações
+        </button>
+    </div>
+
+</form>
             </div>
         </div>
     </div>

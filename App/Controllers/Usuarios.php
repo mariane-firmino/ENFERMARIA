@@ -140,7 +140,7 @@ class Usuarios extends Controller
     {
         /*echo "loginUser";
         echo "<pre>";
-        print_r($_POST);
+        print_r($_POST);   
         echo "</pre>";
         die;*/
         
@@ -214,56 +214,65 @@ class Usuarios extends Controller
     }
 
     public function salvarSenha()
-    {
-        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            header("Location: " . URL . "/usuarios/alterarSenha");
-            exit;
-        }
-        
-              $this->view('usuarios/alterarSenha');
+{
+    if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+        header("Location: " . URL . "/usuarios/alterarSenha");
+        exit;
+    }
 
-        $usuario = $this->usuarioModel->buscarPorId(
-            $_SESSION['usuario_id']
-        );
-        
+    $usuario = $this->usuarioModel->buscarPorId(
+        $_SESSION['usuario_id']
+    );
 
-        if (!password_verify($_POST['senha_atual'], $usuario->usua_senha)) {
+    if (!$usuario) {
+        $_SESSION['erro'] = "Usuário não encontrado.";
 
-            $_SESSION['erro'] = "Senha atual incorreta.";
+        header("Location: " . URL . "/usuarios/alterarSenha");
+        exit;
+    }
 
-            header("Location: " . URL . "/usuarios/alterarSenha");
-            exit;
-        }
-        
+    if (!password_verify(
+    $_POST['senha'],
+    $usuario->serv_senha
 
-        if ($_POST['nova_senha'] != $_POST['confirmar_senha']) {
+)) {
 
-            $_SESSION['erro'] = "As senhas não coincidem.";
+        $_SESSION['erro'] = "Senha atual incorreta.";
+        header("Location: " . URL . "/usuarios/alterarSenha");
+        exit;
+    }
 
-            header("Location: " . URL . "/usuarios/alterarSenha");
-            exit;
-        }
-    
-              
-        $senha = password_hash(
-            $_POST['novaSenha'],
-            PASSWORD_DEFAULT
-        );
+    if ($_POST['novaSenha'] != $_POST['confirmarSenha']) {
 
-      
+        $_SESSION['erro'] = "As senhas não coincidem.";
 
-        $this->usuarioModel->alterarSenha(
-            $_SESSION['usuario_id'],
-            $senha  669
-        );
-        
+        header("Location: " . URL . "/usuarios/alterarSenha");
+        exit;
+    }
+
+    $senha = password_hash(
+        $_POST['novaSenha'],
+        PASSWORD_DEFAULT
+    );
+
+    if ($this->usuarioModel->alterarSenha(
+        $_SESSION['usuario_id'],
+        $senha
+    )) {
+
         $_SESSION['sucesso'] = "Senha alterada com sucesso.";
-
 
         header("Location: " . URL . "/paginas/perfil");
         exit;
-        
+
+    } else {
+
+        $_SESSION['erro'] = "Erro ao alterar a senha.";
+
+        header("Location: " . URL . "/usuarios/alterarSenha");
+        exit;
     }
+}
 
     public function editarPerfil(){
         $dados = [

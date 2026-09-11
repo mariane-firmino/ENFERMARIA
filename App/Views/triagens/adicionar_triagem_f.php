@@ -21,7 +21,7 @@ include '../App/Views/menu.php';
         </div>
     </div>
 
-    <form action="" method="POST">
+   <form action="<?= URL ?>/triagens/salvarTriagemFeminina" method="POST">
         <div class="shadow p-3 mb-5 rounded">
 
             <div class="container text-justify">

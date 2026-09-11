@@ -1,3 +1,13 @@
+<?php if (isset($_SESSION['sucesso'])): ?>
+
+    <script>
+        alert("<?= addslashes($_SESSION['sucesso']) ?>");
+    </script>
+
+    <?php unset($_SESSION['sucesso']); ?>
+
+<?php endif; ?>
+
 <?php
     if(!isset($_SESSION['usuario_id'])){
         header('Location: '.URL.'/login');
@@ -5,6 +15,7 @@
     }
 
     include '../App/Views/menu.php';
+    
 ?>
 <div class="layout">
     <div class="container-fluid ps-4 pe-4 pt-5 pb-3">
