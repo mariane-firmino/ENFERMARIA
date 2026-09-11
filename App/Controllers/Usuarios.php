@@ -199,6 +199,12 @@ class Usuarios extends Controller
         $_SESSION['usuario_siape'] = $usuario->serv_siape;
         $_SESSION['usuario_dt_nascimento'] = $usuario->serv_dt_nascimento;
          $_SESSION['usuario_telefone'] = $usuario->tele_numero;
+         $_SESSION['usuario_funcao'] = $usuario->func_nome;
+         $_SESSION['usuario_foto'] = $usuario->serv_foto;
+
+      
+
+
 
 
         URL::redirecionar('paginas/home');
@@ -220,13 +226,76 @@ class Usuarios extends Controller
         ];
         $this->view('usuarios/alterarSenha', $dados);
     }
-    public function editarPerfil(){
-        $dados = [
-            'titulo' => 'Página de edição de perfil',
-            'descricao' => 'Edição de perfil de usuário'
-        ];
-        $this->view('usuarios/editarPerfil', $dados);
+    public function editarPerfil()
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
+
+            $arquivo = $_FILES['foto'];
+
+            // Limite de 2 MB
+            if ($arquivo['size'] > 2 * 1024 * 1024) {
+                die('A imagem deve ter no máximo 2 MB.');
+            }
+
+            // Verifica o tipo real da imagem
+            $tiposPermitidos = [
+                'image/jpeg' => 'jpg',
+                'image/png'  => 'png',
+                'image/webp' => 'webp'
+            ];
+
+            $tipo = mime_content_type($arquivo['tmp_name']);
+
+            if (!isset($tiposPermitidos[$tipo])) {
+                die('Formato de imagem não permitido.');
+            }
+
+            $extensao = $tiposPermitidos[$tipo];
+
+            // Nome único
+            $nomeArquivo = 'usuario_' . $_SESSION['usuario_id'] . '_' . time() . '.' . $extensao;
+
+            $pasta = __DIR__ . '/../../public/img/usuarios/';
+
+            // Cria a pasta se não existir
+            if (!is_dir($pasta)) {
+                mkdir($pasta, 0755, true);
+            }
+
+            $destino = $pasta . $nomeArquivo;
+
+            if (move_uploaded_file($arquivo['tmp_name'], $destino)) {
+
+                // Salva o caminho no banco
+                if ($this->usuarioModel->atualizarFoto(
+                    $_SESSION['usuario_id'],
+                    $nomeArquivo
+                )) {
+
+                    $_SESSION['usuario_foto'] = $nomeArquivo;
+
+                    URL::redirecionar('usuarios/editarPerfil');
+
+                } else {
+                    die('Erro ao salvar a foto no banco de dados.');
+                }
+
+            } else {
+                die('Erro ao enviar a imagem.');
+            }
+        }
     }
+
+    $dados = [
+        'titulo' => 'Página de edição de perfil',
+        'descricao' => 'Edição de perfil de usuário'
+    ];
+
+    $this->view('usuarios/editarPerfil', $dados);
+}
+
 
 
 

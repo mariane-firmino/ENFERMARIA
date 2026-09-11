@@ -3,8 +3,29 @@
         header('Location: '.URL.'/login');
         exit;
     }
+   
 
     include '../App/Views/menu.php';
+
+    
+
+if (!empty($_SESSION['usuario_foto'])) {
+
+    $fotoPerfil =
+        URL . '/img/usuarios/' .
+        $_SESSION['usuario_foto'];
+
+} else {
+
+    $fotoPerfil =
+        URL . '/img/user.avif';
+
+}
+
+
+
+
+  
 ?>
 <div class="layout">
     <div class="container-fluid ps-4 pe-4 pt-5 pb-3">
@@ -26,7 +47,21 @@
         <div class="card-user">
             <div class="row">
                 <div class="col-12 col-md-4 text-center">
-                    <img src="<?=URL?>/img/user.avif" class="usuario-user" alt="Usuário">
+                    <?php
+
+    
+$foto = !empty($_SESSION['usuario_foto'])
+    ? URL . '/img/usuarios/' . $_SESSION['usuario_foto']
+    : URL . '/img/user.avif';
+?>
+
+
+<img 
+    src="<?= $foto ?>" 
+    class="usuario-user" 
+    alt="Foto de perfil"
+>
+
                     <br><br>
 
                     <a class="btn btn-success button-user" href="<?= URL ?>/usuarios/editarPerfil">
@@ -87,8 +122,10 @@
 
                         <div class="col-12 col-md-6 campo-user">
                             <label class="label-user">Função</label>
-                            <p>Nome da função</p>
+                            <p><?= $_SESSION['usuario_funcao'];?></p>
                         </div>
+
+                        
 
                     </div>
 

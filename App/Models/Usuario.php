@@ -50,42 +50,55 @@ class Usuario
         endif;
     }
 
+    public function atualizarFoto($usuarioId, $nomeFoto)
+{
+    $this->db->query("
+        UPDATE servidor
+        SET serv_foto = :foto
+        WHERE serv_id = :id
+    ");
+
+    $this->db->bind(':foto', $nomeFoto);
+    $this->db->bind(':id', $usuarioId);
+
+    return $this->db->executa();
+}
+
+
     public function listarFuncoes() // lista as funções disponíveis no banco de dados
     {
         $this->db->query("SELECT * FROM funcao ORDER BY func_nome ASC");
         return $this->db->resultados();
     }
-    
-    public function checarLogin($email, $senha)
-    {
-        $this->db->query($this->db->query("
+   public function checarLogin($email, $senha)
+{
+    $this->db->query("
         SELECT
-        s.*,
-     
-        te.tele_numero,
-        f.func_nome
-
+            s.*,
+            te.tele_numero,
+            f.func_nome
         FROM servidor s
-
         LEFT JOIN telefone te
-        ON s.func_id = te.serv_id
-
+            ON s.serv_id = te.serv_id
         LEFT JOIN funcao f
-        ON s.func_id = f.func_id
-
+            ON s.func_id = f.func_id
         WHERE s.serv_email = :e
-        "));
-        $this->db->bind(":e", $email);
-    
-        if ($this->db->resultado()) : 
-            $resultado = $this->db->resultado();
-            if(password_verify($senha, $resultado->serv_senha)): 
-                return $resultado;
-            else:
-                return false;
-            endif;
-        else :
+    ");
+
+    $this->db->bind(":e", $email);
+
+    if ($this->db->resultado()) :
+        $resultado = $this->db->resultado();
+
+        if (password_verify($senha, $resultado->serv_senha)) :
+            return $resultado;
+        else:
             return false;
         endif;
+    else:
+        return false;
+    endif;
+
+
     }
 } // FIM DA CLASSE USUARIO

@@ -27,8 +27,46 @@ include '../App/Views/menu.php';
     </nav>
 
     <!-- DADOS PESSOAIS + INFORMAÇÕES DE CONTATO -->
-    <form action="">
+    <form action="<?= URL ?>/usuarios/editarPerfil" method="POST" enctype="multipart/form-data">
+
         <div class="row g-4 mb-4">
+            <!-- FOTO DE PERFIL -->
+<div class="col-12 mb-4">
+    <div class="card border-0 shadow-sm">
+        <div class="card-body text-center">
+
+            <h5 class="text-success fw-bold mb-4">
+                <i class="bi bi-person-circle"></i> Foto de Perfil
+            </h5>
+
+            <img 
+                src="<?= URL ?>/img/user.avif"
+                class="usuario-user mb-3"
+                alt="Foto de perfil"
+            >
+
+            <div class="mt-2">
+                <label for="foto" class="form-label">
+                    Escolha uma nova foto
+                </label>
+
+                <input 
+                    type="file" 
+                    name="foto" 
+                    id="foto"
+                    class="form-control"
+                    accept="image/jpeg,image/png,image/webp"
+                >
+            </div>
+
+            <small class="text-muted">
+                JPG, PNG ou WEBP. Tamanho máximo: 2 MB.
+            </small>
+
+        </div>
+    </div>
+</div>
+
 
             <!-- DADOS PESSOAIS -->
             <div class="col-lg-8">
