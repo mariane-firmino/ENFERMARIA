@@ -254,7 +254,7 @@ class Usuarios extends Controller
 
         $this->usuarioModel->alterarSenha(
             $_SESSION['usuario_id'],
-            $senha  669
+            $senha  
         );
         
         $_SESSION['sucesso'] = "Senha alterada com sucesso.";
