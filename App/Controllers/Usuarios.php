@@ -260,6 +260,14 @@ class Usuarios extends Controller
         $senha
     )) {
 
+<<<<<<< HEAD
+=======
+        $this->usuarioModel->alterarSenha(
+            $_SESSION['usuario_id'],
+            $senha  
+        );
+        
+>>>>>>> e901be4ad2fae20645e16103792f89f2ef653a6b
         $_SESSION['sucesso'] = "Senha alterada com sucesso.";
 
         header("Location: " . URL . "/paginas/perfil");

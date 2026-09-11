@@ -18,9 +18,9 @@ class Triagens extends Controller
         ];
         $this->view('triagens/adicionar_triagem_f', $dados);
     }
-}
 
-public function triagemMasculina()
+
+public function triagemM3sculina()
     {
         $dados = [
             'titulo' => 'Página de triagens',
@@ -30,7 +30,7 @@ public function triagemMasculina()
         $this->view('triagens/adicionar_triagem_m', $dados);
     }
 
-    public function triagemFeminina()
+    public function triagemFe3minina()
     {
         $dados = [
             'titulo' => 'Página de triagens',
@@ -115,3 +115,5 @@ public function triagemMasculina()
         $this->view('triagens/adicionar_triagem_m', $dados);
     }
         
+    
+    }
