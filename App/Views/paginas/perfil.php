@@ -1,21 +1,28 @@
-<?php if (isset($_SESSION['sucesso'])): ?>
-
-    <script>
-        alert("<?= addslashes($_SESSION['sucesso']) ?>");
-    </script>
-
-    <?php unset($_SESSION['sucesso']); ?>
-
-<?php endif; ?>
-
 <?php
-    if(!isset($_SESSION['usuario_id'])){
-        header('Location: '.URL.'/login');
-        exit;
-    }
+if (!isset($_SESSION['usuario_id'])) {
+    header('Location: ' . URL . '/login');
+    exit;
+}
 
-    include '../App/Views/menu.php';
-    
+
+include '../App/Views/menu.php';
+
+
+
+if (!empty($_SESSION['usuario_foto'])) {
+    $fotoPerfil =
+        URL . '/img/usuarios/' .
+        $_SESSION['usuario_foto'];
+} else {
+
+    $fotoPerfil =
+        URL . '/img/user.avif';
+}
+
+
+
+
+
 ?>
 <div class="layout">
     <div class="container-fluid ps-4 pe-4 pt-5 pb-3">
@@ -23,11 +30,11 @@
 
             <div class="col-8 linha-verde">
                 <h1>Perfil</h1>
-                <p>Bem-Vindo, <?= $_SESSION['usuario_nome'];?>!</p>
+                <p>Bem-Vindo, <?= $_SESSION['usuario_nome']; ?>!</p>
             </div>
 
             <div class="col-4 text-end">
-                <img src="<?=URL?>/img/logo_enfermaria.jpeg" class="logo-home" alt="Logo">
+                <img src="<?= URL ?>/img/logo_enfermaria.jpeg" class="logo-home" alt="Logo">
             </div>
 
         </div>
@@ -37,7 +44,20 @@
         <div class="card-user">
             <div class="row">
                 <div class="col-12 col-md-4 text-center">
-                    <img src="<?=URL?>/img/user.avif" class="usuario-user" alt="Usuário">
+                    <?php
+
+
+                    $foto = !empty($_SESSION['usuario_foto'])
+                        ? URL . '/img/usuarios/' . $_SESSION['usuario_foto']
+                        : URL . '/img/user.avif';
+                    ?>
+
+
+                    <img
+                        src="<?= $foto ?>"
+                        class="usuario-user"
+                        alt="Foto de perfil">
+
                     <br><br>
 
                     <a class="btn btn-success button-user" href="<?= URL ?>/usuarios/editarPerfil">
@@ -57,47 +77,53 @@
                     <div class="row">
                         <div class="col-12 campo-user">
                             <label class="label-user">Nome</label>
-                            <p>Nome completo</p>
+                            <p><?= $_SESSION['usuario_nome']; ?></p>
                         </div>
+
+
 
 
                         <div class="col-12 col-md-6 campo-user">
                             <label class="label-user">E-mail</label>
-                            <p>email completo</p>
+                            <p><?= $_SESSION['usuario_email']; ?></p>
                         </div>
 
 
                         <div class="col-12 col-md-6 campo-user">
                             <label class="label-user">Data de Nascimento</label>
-                            <p>00/00/0000</p>
+                            <p>
+                            <p><?= date('d/m/Y', strtotime($_SESSION['usuario_dt_nascimento'])) ?></p>
+                            </p>
                         </div>
 
 
                         <div class="col-12 col-md-6 campo-user">
                             <label class="label-user">Telefone/Celular</label>
-                            <p>(00) 00000-0000</p>
+                            <p><?= $_SESSION['usuario_telefone']; ?></p>
                         </div>
 
 
 
                         <div class="col-12 col-md-6 campo-user">
                             <label class="label-user">CPF</label>
-                            <p>000.000.000-00</p>
+                            <p><?= $_SESSION['usuario_cpf']; ?></p>
                         </div>
 
 
 
                         <div class="col-12 col-md-6 campo-user">
-                            <label class="label-user">SUAP</label>
-                            <p>000000000</p>
+                            <label class="label-user">SIAPE</label>
+                            <p><?= $_SESSION['usuario_siape']; ?></p>
                         </div>
 
 
 
                         <div class="col-12 col-md-6 campo-user">
                             <label class="label-user">Função</label>
-                            <p>Nome da função</p>
+                            <p><?= $_SESSION['usuario_funcao']; ?></p>
                         </div>
+
+
 
                     </div>
 

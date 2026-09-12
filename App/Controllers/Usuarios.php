@@ -135,7 +135,7 @@ class Usuarios extends Controller
         ];
         $this->view('usuarios/esqueciMinhaSenha1', $dados);
     }
-             
+
     public function login()
     {
         /*echo "loginUser";
@@ -143,14 +143,14 @@ class Usuarios extends Controller
         print_r($_POST);   
         echo "</pre>";
         die;*/
-        
+
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
         if (isset($formulario)) :
             $dados = [
                 'email' => trim($formulario['email']),
                 'senha' => trim($formulario['senha']),
             ];
-        
+
             if (in_array("", $formulario)) :
 
                 if (empty($formulario['email'])) :
@@ -165,13 +165,13 @@ class Usuarios extends Controller
                 if (Checa::checarEmail($formulario['email'])) :
                     $dados['email_erro'] = 'O e-mail informado é invalido';
                 else :
-                   
+
                     $usuario = $this->usuarioModel->checarLogin($formulario['email'], $formulario['senha']);
 
-                    if($usuario): 
+                    if ($usuario):
                         $this->criarSessaoUsuario($usuario);
                     else:
-                        Sessao::mensagem('usuario','Usuario ou senha invalidos','alert alert-danger');
+                        Sessao::mensagem('usuario', 'Usuario ou senha invalidos', 'alert alert-danger');
                     endif;
 
                 endif;
@@ -191,18 +191,32 @@ class Usuarios extends Controller
         $this->view('usuarios/login', $dados);
     }
 
-    private function criarSessaoUsuario($usuario){
+    private function criarSessaoUsuario($usuario)
+    {
         $_SESSION['usuario_id'] = $usuario->serv_id;
         $_SESSION['usuario_nome'] = $usuario->serv_nome;
         $_SESSION['usuario_email'] = $usuario->serv_email;
+        $_SESSION['usuario_cpf'] = $usuario->serv_cpf;
+        $_SESSION['usuario_siape'] = $usuario->serv_siape;
+        $_SESSION['usuario_dt_nascimento'] = $usuario->serv_dt_nascimento;
+        $_SESSION['usuario_telefone'] = $usuario->tele_numero;
+        $_SESSION['usuario_funcao'] = $usuario->func_nome;
+        $_SESSION['usuario_foto'] = $usuario->serv_foto;
 
         URL::redirecionar('paginas/home');
     }
 
-    public function logout(){
+    public function logout()
+    {
         unset($_SESSION['usuario_id']);
         unset($_SESSION['usuario_nome']);
         unset($_SESSION['usuario_email']);
+        unset($_SESSION['usuario_cpf']);
+        unset($_SESSION['usuario_siape']);
+        unset($_SESSION['usuario_dt_nascimento']);
+        unset($_SESSION['usuario_telefone']);
+        unset($_SESSION['usuario_funcao']);
+        unset($_SESSION['usuario_foto']);
 
         session_destroy();
         URL::redirecionar('usuarios/login');
@@ -214,84 +228,73 @@ class Usuarios extends Controller
     }
 
     public function salvarSenha()
-{
-    if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-        header("Location: " . URL . "/usuarios/alterarSenha");
-        exit;
-    }
+    {
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            header("Location: " . URL . "/usuarios/alterarSenha");
+            exit;
+        }
 
-    $usuario = $this->usuarioModel->buscarPorId(
-        $_SESSION['usuario_id']
-    );
-
-    if (!$usuario) {
-        $_SESSION['erro'] = "Usuário não encontrado.";
-
-        header("Location: " . URL . "/usuarios/alterarSenha");
-        exit;
-    }
-
-    if (!password_verify(
-    $_POST['senha'],
-    $usuario->serv_senha
-
-)) {
-
-        $_SESSION['erro'] = "Senha atual incorreta.";
-        header("Location: " . URL . "/usuarios/alterarSenha");
-        exit;
-    }
-
-    if ($_POST['novaSenha'] != $_POST['confirmarSenha']) {
-
-        $_SESSION['erro'] = "As senhas não coincidem.";
-
-        header("Location: " . URL . "/usuarios/alterarSenha");
-        exit;
-    }
-
-    $senha = password_hash(
-        $_POST['novaSenha'],
-        PASSWORD_DEFAULT
-    );
-
-    if ($this->usuarioModel->alterarSenha(
-        $_SESSION['usuario_id'],
-        $senha
-    )) {
-
-<<<<<<< HEAD
-=======
-        $this->usuarioModel->alterarSenha(
-            $_SESSION['usuario_id'],
-            $senha  
+        $usuario = $this->usuarioModel->buscarPorId(
+            $_SESSION['usuario_id']
         );
-        
->>>>>>> e901be4ad2fae20645e16103792f89f2ef653a6b
-        $_SESSION['sucesso'] = "Senha alterada com sucesso.";
 
-        header("Location: " . URL . "/paginas/perfil");
-        exit;
+        if (!$usuario) {
+            $_SESSION['erro'] = "Usuário não encontrado.";
 
-    } else {
+            header("Location: " . URL . "/usuarios/alterarSenha");
+            exit;
+        }
 
-        $_SESSION['erro'] = "Erro ao alterar a senha.";
+        if (!password_verify(
+            $_POST['senha'],
+            $usuario->serv_senha
 
-        header("Location: " . URL . "/usuarios/alterarSenha");
-        exit;
+        )) {
+
+            $_SESSION['erro'] = "Senha atual incorreta.";
+            header("Location: " . URL . "/usuarios/alterarSenha");
+            exit;
+        }
+
+        if ($_POST['novaSenha'] != $_POST['confirmarSenha']) {
+
+            $_SESSION['erro'] = "As senhas não coincidem.";
+
+            header("Location: " . URL . "/usuarios/alterarSenha");
+            exit;
+        }
+
+        $senha = password_hash(
+            $_POST['novaSenha'],
+            PASSWORD_DEFAULT
+        );
+
+        if ($this->usuarioModel->alterarSenha(
+            $_SESSION['usuario_id'],
+            $senha
+        )) {
+
+            $_SESSION['sucesso'] = "Senha alterada com sucesso.";
+
+            header("Location: " . URL . "/paginas/perfil");
+            exit;
+        } else {
+
+            $_SESSION['erro'] = "Erro ao alterar a senha.";
+
+            header("Location: " . URL . "/usuarios/alterarSenha");
+            exit;
+        }
     }
-}
 
-    public function editarPerfil(){
+    public function editarPerfil()
+    {
         $dados = [
             'titulo' => 'Página de edição de perfil',
             'descricao' => 'Edição de perfil de usuário'
         ];
         $this->view('usuarios/editarPerfil', $dados);
     }
-
-
-
 }
 
 ?> <!-- fim do php -->
