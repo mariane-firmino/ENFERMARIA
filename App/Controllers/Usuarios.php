@@ -8,116 +8,155 @@ class Usuarios extends Controller
         $this->usuarioModel = $this->model('Usuario');
     }
     public function cadastrar()
-    {
-        // recebe os dados do formulário de cadastro
-        $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
-        // verifica se o formulário foi enviado
-        if (isset($formulario)):
-            $dados = [
-                'nome' => trim($formulario['nome']), // remove espaços em branco do início e do fim da string
-                'email' => trim($formulario['email']),
-                'cpf' => trim($formulario['cpf']),
-                'data_nascimento' => trim($formulario['data_nascimento']),
-                'telefone' => trim($formulario['telefone']),
-                'siape' => trim($formulario['siape']),
-                'funcao' => trim($formulario['funcao']),
-                'senha' => trim($formulario['senha']),
-                'confirmar_senha' => trim($formulario['confirmar_senha'])
-            ];
-            // verifica se algum campo do formulário está vazio
-            if (in_array("", $formulario)):
-                if (empty($formulario['nome'])) :
-                    $dados['nome_erro'] = 'Preencha o campo nome';
-                endif;
+{
+    // recebe os dados do formulário de cadastro
+    $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
 
-                if (empty($formulario['email'])) :
-                    $dados['email_erro'] = 'Preencha o campo e-mail';
-                endif;
+    // verifica se o formulário foi enviado
+    if (isset($formulario)):
 
-                if (empty($formulario['cpf'])) :
-                    $dados['cpf_erro'] = 'Preencha o campo CPF';
-                endif;
+        $dados = [
+            'nome' => trim($formulario['nome']),
+            'email' => trim($formulario['email']),
+            'cpf' => trim($formulario['cpf']),
+            'data_nascimento' => trim($formulario['data_nascimento']),
+            'telefone' => trim($formulario['telefone']),
+            'siape' => trim($formulario['siape']),
+            'funcao' => trim($formulario['funcao']),
+            'senha' => trim($formulario['senha']),
+            'confirmar_senha' => trim($formulario['confirmar_senha'])
+        ];
 
-                if (empty($formulario['data_nascimento'])) :
-                    $dados['data_nascimento_erro'] = 'Preencha o campo data de nascimento';
-                endif;
+        // verifica se algum campo do formulário está vazio
+        if (in_array("", $formulario)):
 
-                if (empty($formulario['telefone'])) :
-                    $dados['telefone_erro'] = 'Preencha o campo telefone';
-                endif;
+            if (empty($formulario['nome'])):
+                $dados['nome_erro'] = 'Preencha o campo nome';
+            endif;
 
-                if (empty($formulario['siape'])) :
-                    $dados['siape_erro'] = 'Preencha o campo SIAPE';
-                endif;
+            if (empty($formulario['email'])):
+                $dados['email_erro'] = 'Preencha o campo e-mail';
+            endif;
 
-                if (empty($formulario['funcao'])) :
-                    $dados['funcao_erro'] = 'Preencha o campo função';
-                endif;
+            if (empty($formulario['cpf'])):
+                $dados['cpf_erro'] = 'Preencha o campo CPF';
+            endif;
 
-                if (empty($formulario['senha'])) :
-                    $dados['senha_erro'] = 'Preencha o campo senha';
-                endif;
+            if (empty($formulario['data_nascimento'])):
+                $dados['data_nascimento_erro'] = 'Preencha o campo data de nascimento';
+            endif;
 
-                if (empty($formulario['confirmar_senha'])) :
-                    $dados['confirmar_senha_erro'] = 'Preencha o campo confirmar senha';
-                endif;
+            if (empty($formulario['telefone'])):
+                $dados['telefone_erro'] = 'Preencha o campo telefone';
+            endif;
+
+            if (empty($formulario['siape'])):
+                $dados['siape_erro'] = 'Preencha o campo SIAPE';
+            endif;
+
+            if (empty($formulario['funcao'])):
+                $dados['funcao_erro'] = 'Preencha o campo função';
+            endif;
+
+            if (empty($formulario['senha'])):
+                $dados['senha_erro'] = 'Preencha o campo senha';
+            endif;
+
+            if (empty($formulario['confirmar_senha'])):
+                $dados['confirmar_senha_erro'] = 'Preencha o campo confirmar senha';
+            endif;
+
+        else:
+
+            // validação dos dados do formulário
+
+            if (Checa::checarNome($formulario['nome'])):
+
+                $dados['nome_erro'] = 'O nome informado é invalido';
+
+            elseif (Checa::checarEmail($formulario['email'])):
+
+                $dados['email_erro'] = 'O e-mail informado é invalido';
+
+            elseif (Checa::checarCpf($formulario['cpf'])):
+
+                $dados['cpf_erro'] = 'O CPF informado é invalido';
+
+            elseif ($this->usuarioModel->checarEmail($formulario['email'])):
+
+                $dados['email_erro'] = 'O e-mail informado já está cadastrado';
+
+            elseif ($this->usuarioModel->checarSiape($formulario['siape'])):
+
+                $dados['siape_erro'] = 'O SIAPE informado já está cadastrado';
+
+            elseif (strlen($formulario['senha']) < 6):
+
+                $dados['senha_erro'] = 'A senha deve ter no minimo 6 caracteres';
+
+            elseif ($formulario['senha'] != $formulario['confirmar_senha']):
+
+                $dados['confirmar_senha_erro'] = 'As senhas são diferentes';
+
             else:
-                // validação dos dados do formulário
-                if (Checa::checarNome($formulario['nome'])) :
-                    $dados['nome_erro'] = 'O nome informado é invalido';
-                elseif (Checa::checarEmail($formulario['email'])) :
-                    $dados['email_erro'] = 'O e-mail informado é invalido';
-                elseif (Checa::checarCpf($formulario['cpf'])) :
-                    $dados['cpf_erro'] = 'O CPF informado é invalido';
-                elseif ($this->usuarioModel->checarEmail($formulario['email'])) :
-                    $dados['email_erro'] = 'O e-mail informado já está cadastrado';
-                elseif (strlen($formulario['senha']) < 6) :
-                    $dados['senha_erro'] = 'A senha deve ter no minimo 6 caracteres';
-                elseif ($formulario['senha'] != $formulario['confirmar_senha']) :
-                    $dados['confirmar_senha_erro'] = 'As senhas são diferentes';
-                else :
-                    // criptografa a senha do usuário
-                    $dados['senha'] = password_hash($formulario['senha'], PASSWORD_DEFAULT);
 
-                    // armazena os dados do usuário no banco de dados
-                    if ($this->usuarioModel->armazenar($dados)) :
-                        Sessao::mensagem('usuarios', 'Cadastro realizado com sucesso');
-                        URL::redirecionar('paginas/index'); // redireciona para a página de login
-                    else :
-                        // se houver algum erro ao armazenar os dados do usuário no banco de dados
-                        die("Erro ao armazenar usuario no banco de dados");
-                    endif;
+                // criptografa a senha do usuário
+                $dados['senha'] = password_hash(
+                    $formulario['senha'],
+                    PASSWORD_DEFAULT
+                );
+
+                // armazena os dados do usuário no banco de dados
+                if ($this->usuarioModel->armazenar($dados)):
+
+                    Sessao::mensagem(
+                        'usuarios',
+                        'Cadastro realizado com sucesso'
+                    );
+
+                    URL::redirecionar('paginas/index');
+
+                else:
+
+                    die("Erro ao armazenar usuario no banco de dados");
+
                 endif;
 
             endif;
-        else :
-            // se o formulário não foi enviado, inicializa os dados do formulário com valores vazios
-            $dados = [
-                'nome' => '',
-                'email' => '',
-                'cpf' => '',
-                'data_nascimento' => '',
-                'telefone' => '',
-                'siape' => '',
-                'senha' => '',
-                'confirmar_senha' => '',
-                'funcao' => '',
-                'nome_erro' => '',
-                'email_erro' => '',
-                'cpf_erro' => '',
-                'data_nascimento_erro' => '',
-                'telefone_erro' => '',
-                'siape_erro' => '',
-                'funcao_erro' => '',
-                'senha_erro' => '',
-                'confirmar_senha_erro' => '',
-                'funcoes' => $this->usuarioModel->listarFuncoes() // lista as funções disponíveis no banco de dados
-            ];
 
         endif;
-        $this->view('usuarios/cadastro', $dados);
-    }
 
+    else:
+
+        // se o formulário não foi enviado
+        $dados = [
+            'nome' => '',
+            'email' => '',
+            'cpf' => '',
+            'data_nascimento' => '',
+            'telefone' => '',
+            'siape' => '',
+            'senha' => '',
+            'confirmar_senha' => '',
+            'funcao' => '',
+
+            'nome_erro' => '',
+            'email_erro' => '',
+            'cpf_erro' => '',
+            'data_nascimento_erro' => '',
+            'telefone_erro' => '',
+            'siape_erro' => '',
+            'funcao_erro' => '',
+            'senha_erro' => '',
+            'confirmar_senha_erro' => '',
+
+            'funcoes' => $this->usuarioModel->listarFuncoes()
+        ];
+
+    endif;
+
+    $this->view('usuarios/cadastro', $dados);
+}
     public function esqueciMinhaSenha1()
     {
         $dados = [
@@ -277,13 +316,182 @@ class Usuarios extends Controller
             exit;
         }
     }
-
-    public function editarPerfil()
-    {
-        $dados = [
-            'titulo' => 'Página de edição de perfil',
-            'descricao' => 'Edição de perfil de usuário'
-        ];
-        $this->view('usuarios/editarPerfil', $dados);
+public function editarPerfil()
+{
+    // Verifica se o usuário está logado
+    if (!isset($_SESSION['usuario_id'])) {
+        URL::redirecionar('usuarios/login');
+        exit;
     }
+
+    $id = $_SESSION['usuario_id'];
+
+    // =====================================================
+    // SALVAR ALTERAÇÕES
+    // =====================================================
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        $nome = trim($_POST['nome'] ?? '');
+        $email = trim($_POST['email'] ?? '');
+        $dataNascimento = trim($_POST['data_nascimento'] ?? '');
+        $telefone = trim($_POST['telefone'] ?? '');
+
+        // Validação
+        if ($nome === '') {
+            $_SESSION['erro'] = 'Preencha o nome.';
+            URL::redirecionar('usuarios/editarPerfil');
+            exit;
+        }
+
+        if ($email === '') {
+            $_SESSION['erro'] = 'Preencha o e-mail.';
+            URL::redirecionar('usuarios/editarPerfil');
+            exit;
+        }
+
+        // Busca o usuário atual
+        $usuario = $this->usuarioModel->buscarPorId($id);
+
+        if (!$usuario) {
+            $_SESSION['erro'] = 'Usuário não encontrado.';
+            URL::redirecionar('paginas/perfil');
+            exit;
+        }
+
+        // Mantém a foto atual caso nenhuma nova seja enviada
+        $foto = $usuario->serv_foto ?? null;
+
+        // =====================================================
+        // UPLOAD DA FOTO
+        // =====================================================
+        if (
+            isset($_FILES['foto']) &&
+            $_FILES['foto']['error'] !== UPLOAD_ERR_NO_FILE
+        ) {
+
+            if ($_FILES['foto']['error'] !== UPLOAD_ERR_OK) {
+                $_SESSION['erro'] = 'Erro ao enviar a foto.';
+                URL::redirecionar('usuarios/editarPerfil');
+                exit;
+            }
+
+            $arquivo = $_FILES['foto'];
+
+            // Limite de 5 MB
+            if ($arquivo['size'] > 5 * 1024 * 1024) {
+                $_SESSION['erro'] = 'A foto deve ter no máximo 5 MB.';
+                URL::redirecionar('usuarios/editarPerfil');
+                exit;
+            }
+
+            // Verifica o tipo real do arquivo
+            $tiposPermitidos = [
+                'image/jpeg' => 'jpg',
+                'image/png'  => 'png',
+                'image/webp' => 'webp'
+            ];
+
+            $tipo = mime_content_type($arquivo['tmp_name']);
+
+            if (!isset($tiposPermitidos[$tipo])) {
+                $_SESSION['erro'] = 'Formato de foto não permitido.';
+                URL::redirecionar('usuarios/editarPerfil');
+                exit;
+            }
+
+            $extensao = $tiposPermitidos[$tipo];
+
+            $nomeArquivo = 'perfil_' . $id . '_' . time() . '.' . $extensao;
+
+            /*
+             * Pasta:
+             * C:\xampp\htdocs\ENFERMARIA\Public\uploads\perfis\
+             */
+            $pasta = dirname(__DIR__, 2) . '/Public/uploads/perfis/';
+
+            if (!is_dir($pasta)) {
+                if (!mkdir($pasta, 0755, true)) {
+                    $_SESSION['erro'] = 'Não foi possível criar a pasta da foto.';
+                    URL::redirecionar('usuarios/editarPerfil');
+                    exit;
+                }
+            }
+
+            $destino = $pasta . $nomeArquivo;
+
+            if (!move_uploaded_file($arquivo['tmp_name'], $destino)) {
+                $_SESSION['erro'] = 'Não foi possível salvar a foto.';
+                URL::redirecionar('usuarios/editarPerfil');
+                exit;
+            }
+
+            $foto = $nomeArquivo;
+        }
+
+        // =====================================================
+        // ATUALIZA BANCO
+        // =====================================================
+        $resultado = $this->usuarioModel->atualizarPerfil(
+            $id,
+            $nome,
+            $email,
+            $dataNascimento,
+            $telefone,
+            $foto
+        );
+
+        if (!$resultado) {
+            $_SESSION['erro'] = 'Não foi possível atualizar o perfil no banco de dados.';
+            URL::redirecionar('usuarios/editarPerfil');
+            exit;
+        }
+
+        // =====================================================
+        // ATUALIZA A SESSÃO
+        // =====================================================
+        $_SESSION['usuario_nome'] = $nome;
+        $_SESSION['usuario_email'] = $email;
+        $_SESSION['usuario_dt_nascimento'] = $dataNascimento;
+        $_SESSION['usuario_telefone'] = $telefone;
+        $_SESSION['usuario_foto'] = $foto;
+
+        $_SESSION['sucesso'] = 'Perfil atualizado com sucesso!';
+
+        URL::redirecionar('paginas/perfil');
+        exit;
+    }
+
+    // =====================================================
+    // ABRIR PÁGINA DE EDIÇÃO
+    // =====================================================
+
+    $usuario = $this->usuarioModel->buscarPorId($id);
+
+    if (!$usuario) {
+        $_SESSION['erro'] = 'Usuário não encontrado.';
+        URL::redirecionar('paginas/perfil');
+        exit;
+    }
+
+    $dados = [
+        'usuario' => $usuario
+    ];
+
+    $this->view('usuarios/editarPerfil', $dados);
+}
+
+
+public function checarSiape($siape)
+{
+    $this->db->query("
+        SELECT serv_id
+        FROM servidor
+        WHERE serv_siape = :siape
+        LIMIT 1
+    ");
+
+    $this->db->bind(':siape', $siape);
+
+    return $this->db->resultado();
+}
 }

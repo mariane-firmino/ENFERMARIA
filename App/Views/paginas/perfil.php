@@ -11,7 +11,7 @@ include '../App/Views/menu.php';
 
 // Define a foto do usuário
 if (!empty($_SESSION['usuario_foto'])) {
-    $fotoPerfil = URL . '/img/usuarios/' . $_SESSION['usuario_foto'];
+    $fotoPerfil = URL . '/uploads/perfis/' . $_SESSION['usuario_foto'];
 } else {
     $fotoPerfil = URL . '/img/user.avif';
 }

@@ -15,7 +15,8 @@
 .usuario-user {
     width: 100px;
     height: 100px;
-    object-fit: contain;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 
@@ -59,12 +60,13 @@
         box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.30);
     }
 
-    .usuario-user {
-        width: 90px;
-        height: 90px;
-        margin-bottom: 0;
-    }
-
+.usuario-user {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 0;
+    object-fit: cover;
+    border-radius: 50%;
+}
     .button-user {
         width: 160px;
         height: 34px;

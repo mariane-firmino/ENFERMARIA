@@ -6,6 +6,20 @@ if (!isset($_SESSION['usuario_id'])) {
 
 include '../App/Views/menu.php';
 ?>
+<?php
+$telefone = preg_replace('/\D/', '', $aluno->tele_numero ?? '');
+
+if (strlen($telefone) == 11) {
+    $telefone = '(' . substr($telefone, 0, 2) . ') ' .
+                substr($telefone, 2, 5) . '-' .
+                substr($telefone, 7, 4);
+} elseif (strlen($telefone) == 10) {
+    $telefone = '(' . substr($telefone, 0, 2) . ') ' .
+                substr($telefone, 2, 4) . '-' .
+                substr($telefone, 6, 4);
+}
+
+?>
 <div class="layout">
     <div class="container-fluid ps-4 pe-4 pt-5 pb-3">
         <div class="row align-items-start">
@@ -191,7 +205,7 @@ include '../App/Views/menu.php';
                         <div class="col-12 col-sm-6 col-lg-12">
                             <small>Telefone do responsável</small>
                             <p>
-                                <b>(69) 9 9999-2902</b>
+                                <b><?= htmlspecialchars($telefone) ?></b>
                             </p>
                         </div>
 

@@ -72,13 +72,17 @@ class Alunos extends Controller
         $this->view('alunos/aluno', $dados);
     }
     public function consulta()
-    {
-        $dados = [
-            'titulo' => 'Página de consultas',
-            'descricao' => 'pagina consultas'
-        ];
-        $this->view('alunos/consulta', $dados);
-    }
+{
+    $alunos = $this->alunoModel->listarTodos();
+
+    $dados = [
+        'titulo' => 'Página de consultas',
+        'descricao' => 'Página de consulta de alunos',
+        'alunos' => $alunos
+    ];
+
+    $this->view('alunos/consulta', $dados);
+}
     public function cadastrar()
     {
         $todosOsCampos = array_merge(self::CAMPOS_OBRIGATORIOS, self::CAMPOS_OPCIONAIS_EXTRA, self::CAMPOS_SAUDE);

@@ -160,6 +160,37 @@ class Aluno
 
         $this->db->executa();
     }
+    public function listarTodos()
+{
+    $this->db->query("
+        SELECT
+            a.alun_id,
+            a.alun_nome,
+            a.alun_dt_nascimetno,
+            a.alun_sexo,
+            a.alun_matriculal,
+
+            t.turm_id,
+            t.turm_curso,
+            t.turm_turno,
+            t.turm_ano,
+
+            r.resp_id,
+            r.resp_nome
+
+        FROM aluno a
+
+        LEFT JOIN turma t
+            ON a.turm_id = t.turm_id
+
+        LEFT JOIN responsavel r
+            ON a.resp_id = r.resp_id
+
+        ORDER BY a.alun_nome ASC
+    ");
+
+    return $this->db->resultados();
+}
 }
 
 // FIM DA CLASSE ALUNO

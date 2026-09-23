@@ -9,20 +9,42 @@ class Usuario
         $this->db = new Database();
     }
 
-    // verifica se o e-mail já está cadastrado no banco de dados
-    public function checarEmail($email)
+     public function checarSiape($siape)
     {
-        $this->db->query("SELECT serv_email FROM servidor WHERE serv_email = :e");
-        $this->db->bind(":e", $email);
+        $this->db->query("
+            SELECT serv_id
+            FROM servidor
+            WHERE serv_siape = :siape
+            LIMIT 1
+        ");
 
-        if ($this->db->resultado()) :
-            return true;
-        else :
-            return false;
-        endif;
+        $this->db->bind(':siape', $siape);
+
+        return $this->db->resultado();
     }
 
-    public function armazenar($dados) // cadastra o usuário no banco de dados
+
+    // Verifica se o e-mail já está cadastrado
+    public function checarEmail($email)
+    {
+        $this->db->query("
+            SELECT serv_email
+            FROM servidor
+            WHERE serv_email = :e
+        ");
+
+        $this->db->bind(":e", $email);
+
+        if ($this->db->resultado()) {
+            return true;
+        }
+
+        return false;
+    }
+
+
+    // Cadastra o usuário
+    public function armazenar($dados)
     {
         $this->db->query("
             INSERT INTO servidor(
@@ -33,7 +55,8 @@ class Usuario
                 serv_dt_nascimento,
                 func_id,
                 serv_senha
-            ) VALUES (
+            )
+            VALUES (
                 :nome,
                 :siape,
                 :email,
@@ -56,28 +79,42 @@ class Usuario
             return false;
         }
 
-        // cadastra o telefone relacionado ao usuário
+        // ID do usuário recém cadastrado
+        $idUsuario = $this->db->ultimoIdInserido();
+
+        // Cadastra o telefone
         $this->db->query("
-            INSERT INTO telefone(tele_numero, serv_id)
-            VALUES (:celular, :id_usuario)
+            INSERT INTO telefone(
+                tele_numero,
+                serv_id
+            )
+            VALUES (
+                :celular,
+                :id_usuario
+            )
         ");
 
         $this->db->bind("celular", $dados['telefone']);
-        $this->db->bind("id_usuario", $this->db->ultimoIdInserido());
+        $this->db->bind("id_usuario", $idUsuario);
 
-        if ($this->db->executa()) :
-            return true;
-        else :
-            return false;
-        endif;
+        return $this->db->executa();
     }
 
-    public function listarFuncoes() // lista as funções disponíveis no banco de dados
+
+    // Lista as funções
+    public function listarFuncoes()
     {
-        $this->db->query("SELECT * FROM funcao ORDER BY func_nome ASC");
+        $this->db->query("
+            SELECT *
+            FROM funcao
+            ORDER BY func_nome ASC
+        ");
+
         return $this->db->resultados();
     }
 
+
+    // Verifica login
     public function checarLogin($email, $senha)
     {
         $this->db->query("
@@ -95,27 +132,46 @@ class Usuario
 
         $this->db->bind(":e", $email);
 
-        if ($this->db->resultado()) :
+        if ($this->db->resultado()) {
+
             $resultado = $this->db->resultado();
 
-            if (password_verify($senha, $resultado->serv_senha)) :
+            if (password_verify($senha, $resultado->serv_senha)) {
                 return $resultado;
-            else :
-                return false;
-            endif;
-        else :
+            }
+
             return false;
-        endif;
+        }
+
+        return false;
     }
 
-    public function buscarPorId($serv_id)
-    {
-        $this->db->query("SELECT * FROM servidor WHERE serv_id = :serv_id");
-        $this->db->bind(':serv_id', $serv_id);
 
-        return $this->db->resultado();
-    }
+    // Busca usuário pelo ID
+   public function buscarPorId($id)
+{
+    $this->db->query("
+        SELECT
+            s.serv_id,
+            s.serv_nome,
+            s.serv_email,
+            DATE_FORMAT(s.serv_dt_nascimento, '%Y-%m-%d') AS serv_dt_nascimento,
+            s.serv_foto,
+            t.tele_numero
+        FROM servidor s
+        LEFT JOIN telefone t
+            ON t.serv_id = s.serv_id
+        WHERE s.serv_id = :id
+        LIMIT 1
+    ");
 
+    $this->db->bind(':id', $id);
+
+    return $this->db->resultado();
+}
+
+
+    // Altera senha
     public function alterarSenha($id, $senha)
     {
         $this->db->query("
@@ -129,6 +185,75 @@ class Usuario
 
         return $this->db->executa();
     }
-}
 
-// FIM DA CLASSE USUARIO
+
+    // ==========================================
+    // ATUALIZA PERFIL
+    // ==========================================
+  // ==========================================
+// ATUALIZA PERFIL
+// ==========================================
+public function atualizarPerfil(
+    $id,
+    $nome,
+    $email,
+    $dataNascimento,
+    $telefone,
+    $foto = null
+) {
+    // Atualiza os dados do servidor
+    if ($foto !== null) {
+
+        $this->db->query("
+            UPDATE servidor
+            SET
+                serv_nome = :nome,
+                serv_email = :email,
+                serv_dt_nascimento = :data_nascimento,
+                serv_foto = :foto
+            WHERE serv_id = :id
+        ");
+
+        $this->db->bind(':nome', $nome);
+        $this->db->bind(':email', $email);
+        $this->db->bind(':data_nascimento', $dataNascimento);
+        $this->db->bind(':foto', $foto);
+        $this->db->bind(':id', $id);
+
+    } else {
+
+        $this->db->query("
+            UPDATE servidor
+            SET
+                serv_nome = :nome,
+                serv_email = :email,
+                serv_dt_nascimento = :data_nascimento
+            WHERE serv_id = :id
+        ");
+
+        $this->db->bind(':nome', $nome);
+        $this->db->bind(':email', $email);
+        $this->db->bind(':data_nascimento', $dataNascimento);
+        $this->db->bind(':id', $id);
+    }
+
+    // Executa atualização do servidor
+    if (!$this->db->executa()) {
+        return false;
+    }
+
+    // Atualiza o telefone
+    $this->db->query("
+        UPDATE telefone
+        SET tele_numero = :telefone
+        WHERE serv_id = :id
+    ");
+
+    $this->db->bind(':telefone', $telefone);
+    $this->db->bind(':id', $id);
+
+    return $this->db->executa();
+}   
+
+
+}
