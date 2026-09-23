@@ -22,3 +22,17 @@ inputTelefone.addEventListener('keypress', () => {
         inputTelefone.value += '-';
     }
 })
+
+const inputTelefoneAluno = document.querySelector("#inputtelefonealuno");
+
+inputTelefoneAluno.addEventListener('keypress', () => {
+    let inputLength = inputTelefoneAluno.value.length;
+
+    if (inputLength === 0) {
+        inputTelefoneAluno.value += '(';
+    } else if (inputLength === 3) {
+        inputTelefoneAluno.value += ') ';
+    } else if (inputLength === 10) {
+        inputTelefoneAluno.value += '-';
+    }
+})

@@ -24,7 +24,25 @@ class Usuario
 
     public function armazenar($dados) // cadastra o usuário no banco de dados
     {
-        $this->db->query("INSERT INTO servidor(serv_nome, serv_siape, serv_email, serv_cpf, serv_dt_nascimento, func_id, serv_senha) VALUES (:nome, :siape, :email, :cpf, :data_nascimento, :funcao, :senha)");
+        $this->db->query("
+            INSERT INTO servidor(
+                serv_nome,
+                serv_siape,
+                serv_email,
+                serv_cpf,
+                serv_dt_nascimento,
+                func_id,
+                serv_senha
+            ) VALUES (
+                :nome,
+                :siape,
+                :email,
+                :cpf,
+                :data_nascimento,
+                :funcao,
+                :senha
+            )
+        ");
 
         $this->db->bind('nome', $dados['nome']);
         $this->db->bind('siape', $dados['siape']);
@@ -38,10 +56,14 @@ class Usuario
             return false;
         }
 
-        $this->db->query("INSERT INTO telefone(tele_numero, serv_id) VALUES (:celular, :id_usuario)");
+        // cadastra o telefone relacionado ao usuário
+        $this->db->query("
+            INSERT INTO telefone(tele_numero, serv_id)
+            VALUES (:celular, :id_usuario)
+        ");
+
         $this->db->bind("celular", $dados['telefone']);
         $this->db->bind("id_usuario", $this->db->ultimoIdInserido());
-
 
         if ($this->db->executa()) :
             return true;
@@ -58,17 +80,17 @@ class Usuario
 
     public function checarLogin($email, $senha)
     {
-        $this->db->query(
-        "SELECT
-            s.*,
-            te.tele_numero,
-            f.func_nome
-        FROM servidor s
-        LEFT JOIN telefone te
-            ON s.serv_id = te.serv_id
-        LEFT JOIN funcao f
-            ON s.func_id = f.func_id
-        WHERE s.serv_email = :e
+        $this->db->query("
+            SELECT
+                s.*,
+                te.tele_numero,
+                f.func_nome
+            FROM servidor s
+            LEFT JOIN telefone te
+                ON s.serv_id = te.serv_id
+            LEFT JOIN funcao f
+                ON s.func_id = f.func_id
+            WHERE s.serv_email = :e
         ");
 
         $this->db->bind(":e", $email);
@@ -78,10 +100,10 @@ class Usuario
 
             if (password_verify($senha, $resultado->serv_senha)) :
                 return $resultado;
-            else:
+            else :
                 return false;
             endif;
-        else:
+        else :
             return false;
         endif;
     }
@@ -90,20 +112,23 @@ class Usuario
     {
         $this->db->query("SELECT * FROM servidor WHERE serv_id = :serv_id");
         $this->db->bind(':serv_id', $serv_id);
+
         return $this->db->resultado();
     }
 
     public function alterarSenha($id, $senha)
     {
         $this->db->query("
-        UPDATE servidor
-        SET serv_senha = :senha
-        WHERE serv_id = :id
+            UPDATE servidor
+            SET serv_senha = :senha
+            WHERE serv_id = :id
         ");
 
         $this->db->bind(':senha', $senha);
         $this->db->bind(':id', $id);
+
         return $this->db->executa();
     }
 }
+
 // FIM DA CLASSE USUARIO

@@ -42,17 +42,26 @@ include '../App/Views/menu.php';
     <!-- =========== Detalhes da notificação =========== -->
     <div class="container-fluid px-3 px-md-4">
         <div class="mt-4">
-            <h3>Título da Notificação</h3>
-            <small class="text-muted">
-                Data: 01/01/2023 às 10:00
-            </small>
-            <div class="shadow p-3 p-md-4 mt-3 mb-3 rounded">
-                <p class="mb-0">
-                    Conteúdo da notificação. Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit. Sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua.
-                </p>
-            </div>
+            <h3>
+            <?= htmlspecialchars($dados['notificacao']->noti_titulo); ?>
+        </h3>
+        <small class="text-muted">
+            Data:
+            <?= date(
+                'd/m/Y \à\s H:i',
+                strtotime($dados['notificacao']->noti_data)
+            ); ?>
+        </small>
+
+        <div class="shadow p-3 p-md-4 mt-3 mb-3 rounded">
+
+            <p class="mb-0">
+                <?= nl2br(
+                    htmlspecialchars($dados['notificacao']->noti_descricao)
+                ); ?>
+            </p>
+
+        </div>
             <button type="submit" class="btn btn-success">
                 Marcar como lida
             </button>

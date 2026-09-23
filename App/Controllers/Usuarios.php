@@ -7,15 +7,6 @@ class Usuarios extends Controller
     {
         $this->usuarioModel = $this->model('Usuario');
     }
-    /*public function cadastrar()
-    {
-        $dados = [
-            'titulo' => 'Página de Cadastro',
-            'descricao' => 'Cadastro de usuário'
-        ];
-        $this->view('usuarios/cadastro', $dados);
-    }*/
-
     public function cadastrar()
     {
         // recebe os dados do formulário de cadastro
@@ -296,5 +287,3 @@ class Usuarios extends Controller
         $this->view('usuarios/editarPerfil', $dados);
     }
 }
-
-?> <!-- fim do php -->

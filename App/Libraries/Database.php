@@ -39,7 +39,7 @@ class Database
         $this->stmt = $this->dbh->prepare($sql);
     } //fim da função query
     //vincula um valor a um parâmetro
-    
+
     public function bind($parametro, $valor, $tipo = null)
     {
         if (is_null($tipo)):
@@ -89,4 +89,37 @@ class Database
     {
         return $this->dbh->lastInsertId();
     } //fim da função ultimoIdInserido
+    // Inicia uma transação
+    public function beginTransaction()
+    {
+        return $this->dbh->beginTransaction();
+    }
+
+    // Confirma a transação
+    public function commit()
+    {
+        return $this->dbh->commit();
+    }
+
+    // Desfaz a transação
+    public function rollBack()
+    {
+        if ($this->dbh->inTransaction()) {
+            return $this->dbh->rollBack();
+        }
+
+        return false;
+    }
+
+    // Prepara uma consulta e permite passar parâmetros diretamente
+    public function prepare($sql)
+    {
+        return $this->dbh->prepare($sql);
+    }
+
+    // Retorna o último ID inserido
+    public function lastInsertId()
+    {
+        return $this->dbh->lastInsertId();
+    }
 }//fim da classe Database

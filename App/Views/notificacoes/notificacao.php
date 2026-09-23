@@ -23,32 +23,42 @@ include '../App/Views/menu.php';
 
     <div class="container text-center">
         <div class="row align-items-center g-3 noti-responsive">
+<form action="<?= URL ?>/notificacoes/notificacao" method="GET">
+
+    <div class="container text-center">
+        <div class="row align-items-center g-3 noti-responsive">
 
             <!-- FILTROS -->
             <div class="col-12 col-lg-5">
+
                 <div class="d-flex justify-content-center flex-wrap gap-2">
 
-                    <input type="radio" class="btn-check" name="options-base"
-                        id="option5" autocomplete="off" checked>
-                    <label class="btn verde" for="option5">
+                    <button
+                        type="submit"
+                        name="status"
+                        value=""
+                        class="btn <?= empty($dados['status']) ? 'btn-success' : 'btn-outline-success' ?>">
                         Todas
-                    </label>
+                    </button>
 
-
-                    <input type="radio" class="btn-check" name="options-base"
-                        id="option6" autocomplete="off">
-                    <label class="btn verde" for="option6">
+                    <button
+                        type="submit"
+                        name="status"
+                        value="nao_lidas"
+                        class="btn <?= $dados['status'] === 'nao_lidas' ? 'btn-success' : 'btn-outline-success' ?>">
                         Não Lidas
-                    </label>
+                    </button>
 
-
-                    <input type="radio" class="btn-check" name="options-base"
-                        id="option8" autocomplete="off">
-                    <label class="btn verde" for="option8">
+                    <button
+                        type="submit"
+                        name="status"
+                        value="lidas"
+                        class="btn <?= $dados['status'] === 'lidas' ? 'btn-success' : 'btn-outline-success' ?>">
                         Lidas
-                    </label>
+                    </button>
 
                 </div>
+
             </div>
 
 
@@ -64,6 +74,8 @@ include '../App/Views/menu.php';
                     <input
                         class="form-control"
                         type="text"
+                        name="pesquisa"
+                        value="<?= htmlspecialchars($dados['pesquisa'] ?? '') ?>"
                         placeholder="Pesquise alguma coisa"
                         aria-label="Pesquise alguma coisa">
 
@@ -75,89 +87,106 @@ include '../App/Views/menu.php';
             <!-- DATA -->
             <div class="col-12 col-md-5 col-lg-3">
 
-                <input
-                    type="date"
-                    class="form-control"
-                    id="data"
-                    name="data">
-
+                <input 
+        type="date" 
+        class="form-control" 
+        id="data" 
+        name="data"
+        value="<?= $dados['data'] ?? '' ?>"
+        onchange="this.form.submit()">
             </div>
 
         </div>
     </div>
 
-    <div class="alert alert-outline-success mt-3 mx-3" role="alert">
-        <div class="row align-items-center">
+</form>
 
-            <!-- Título e descrição -->
-            <div class="col">
-                <h6 class="mb-1">
-                    <strong>Título da Notificação</strong>
-                </h6>
-                <small>
-                    Descrição da notificação...
-                </small>
-            </div>
+        </div>
+    </div>
 
-            <!-- Data -->
-            <div class="col-auto d-flex align-items-center">
-                <small class="text-nowrap">
-                    Há 3 dias
-                </small>
-            </div>
+    <?php if (!empty($dados['notificacoes'])): ?>
 
-            <!-- Três pontinhos -->
-            <div class="col-auto">
-                <div class="dropdown">
+        <?php foreach ($dados['notificacoes'] as $notificacao): ?>
 
-                    <button
-                        class="btn p-0 border-0"
-                        type="button"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false">
+            <div class="alert notificacao-item mt-3 mx-3 border border-2 
+    <?= $notificacao->noti_status === 'Lida'
+                ? 'border-success'
+                : 'border-danger' ?>" role="alert">
+                <div class="row align-items-center">
 
-                        <b class="tres-pontos">...</b>
-                    </button>
+                    <!-- Título e descrição -->
+                    <div class="col">
 
-                    <ul class="dropdown-menu dropdown-menu-end">
+                        <h6 class="mb-1">
+                            <strong>
+                                <?= htmlspecialchars($notificacao->noti_titulo); ?>
+                            </strong>
+                        </h6>
 
-                        <li>
-                            <a class="dropdown-item"
-                                href="<?= URL ?>/notificacoes/detalhe">
-                                Visualizar
-                            </a>
-                        </li>
+                        <small>
+                            <?= htmlspecialchars($notificacao->noti_descricao); ?>
+                        </small>
 
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                Marcar como lida
-                            </a>
-                        </li>
+                    </div>
 
-                        <li>
-                            <a
-                                class="dropdown-item"
-                                href="#"
-                                data-bs-toggle="modal"
-                                data-bs-target="#modalExcluirNotificacao">
-                                Excluir
-                            </a>
-                        </li>
+                    <!-- Data -->
+                    <div class="col-auto d-flex align-items-center">
+                        <small class="text-nowrap">
 
-                    </ul>
+                            <?= date('d/m/Y H:i', strtotime($notificacao->noti_data)); ?>
+
+                        </small>
+                    </div>
+
+                    <!-- Três pontinhos -->
+                    <div class="col-auto">
+
+                        <div class="dropdown">
+
+                            <button class="btn p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                                <b class="tres-pontos">...</b>
+
+                            </button>
+
+                            <ul class="dropdown-menu dropdown-menu-end">
+
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="<?= URL ?>/notificacoes/detalhe/<?= $notificacao->noti_id ?>">
+                                        Visualizar
+                                    </a>
+
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="<?= URL ?>/notificacoes/marcarComoLida/<?= $notificacao->noti_id ?>">
+                                        Marcar como lida
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="<?= URL ?>/notificacoes/excluir/<?= $notificacao->noti_id; ?>"
+                                        data-bs-toggle="modal" data-bs-target="#modalExcluir<?= $notificacao->noti_id; ?>">
+                                        Excluir
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
 
 
-            <!-- Modal de confirmação de exclusão -->
-            <div
-                class="modal fade"
-                id="modalExcluirNotificacao"
-                data-bs-backdrop="static"
-                data-bs-keyboard="false"
-                tabindex="-1"
-                aria-labelledby="modalExcluirNotificacaoLabel"
-                aria-hidden="true">
+            <!-- Modal de confirmação -->
+            <div class="modal fade" id="modalExcluir<?= $notificacao->noti_id; ?>" data-bs-backdrop="static"
+                data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
 
                 <div class="modal-dialog">
 
@@ -165,17 +194,11 @@ include '../App/Views/menu.php';
 
                         <div class="modal-header">
 
-                            <h1
-                                class="modal-title fs-5"
-                                id="modalExcluirNotificacaoLabel">
+                            <h1 class="modal-title fs-5">
                                 Confirmação de Exclusão
                             </h1>
 
-                            <button
-                                type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                             </button>
 
                         </div>
@@ -186,25 +209,32 @@ include '../App/Views/menu.php';
 
                         <div class="modal-footer">
 
-                            <button
-                                type="button"
-                                class="btn btn-secondary"
-                                data-bs-dismiss="modal">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                 Cancelar
                             </button>
 
-                            <a
-                                class="btn btn-danger"
-                                href="#">
+                            <a class="btn btn-danger" href="<?= URL ?>/notificacoes/excluir/<?= $notificacao->noti_id; ?>">
                                 Confirmar
                             </a>
 
                         </div>
 
                     </div>
+
                 </div>
+
             </div>
+
+        <?php endforeach; ?>
+
+    <?php else: ?>
+
+        <div class="alert alert-info mt-3 mx-3">
+            Nenhuma notificação encontrada.
         </div>
-    </div>
-        </div>
-        <?php include '../App/Views/footer.php' ?>
+
+    <?php endif; ?>
+
+</div>
+</div>
+<?php include '../App/Views/footer.php' ?>
